@@ -89,9 +89,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   <SmallPoxData>k__BackingField: {fileID: 11400000, guid: 500b55294943b244dac517e491a56970, type: 2}
+  <ShieldSprite>k__BackingField:
+  - {fileID: 1296229099, guid: 984eaed6506186845988d654ab206396, type: 3}
+  - {fileID: 49330854, guid: 984eaed6506186845988d654ab206396, type: 3}
+  _spriteRenderer: {fileID: 3973093231002841330}
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 512
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  <BoundCount>k__BackingField: 2
 --- !u!50 &3033785438456095169
 Rigidbody2D:
   serializedVersion: 5
