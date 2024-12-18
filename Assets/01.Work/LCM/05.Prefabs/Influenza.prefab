@@ -99,7 +99,7 @@ MonoBehaviour:
   <_whatIsGround>k__BackingField:
     serializedVersion: 2
     m_Bits: 512
-  _shields:
+  shields:
   - {fileID: 5240070121455227925}
   - {fileID: 6926029297455070781}
   - {fileID: 3322429598691099528}
