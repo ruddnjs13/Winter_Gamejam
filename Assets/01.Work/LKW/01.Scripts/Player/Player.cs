@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     {
         if (isVerticalMove)
         {
-            _playerRenderer.Flip(transform.position.y > _inputReader.MousePos.y);
+            _playerRenderer.Flip(transform.position.y < _inputReader.MousePos.y);
 
             if (isReverseMove)
             {
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            _playerRenderer.Flip(transform.position.x > _inputReader.MousePos.x);
+            _playerRenderer.Flip(transform.position.x < _inputReader.MousePos.x);
 
             if (isReverseMove)
             {
