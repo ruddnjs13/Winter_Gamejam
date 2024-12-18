@@ -39,7 +39,7 @@ public abstract class Boss : MonoBehaviour{
         return playerCollider.transform;
     }
 
-    private void OnDrawGizmos(){
+    protected virtual void OnDrawGizmos(){
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, _playerCheckerBoxSize);
     }

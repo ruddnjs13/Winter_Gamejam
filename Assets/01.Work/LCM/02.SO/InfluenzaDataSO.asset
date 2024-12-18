@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61b3e8d9002a7147b533a322a890fdd, type: 3}
   m_Name: InfluenzaDataSO
   m_EditorClassIdentifier: 
+  moveSpeed: 10
+  returnSpeed: 3
+  checkGroundRadius: 1.94
+  rotationSpeed: 10
+  Attack2Speed: 1
+  Attack2Count: 20
