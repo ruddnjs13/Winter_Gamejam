@@ -21,7 +21,11 @@ public class Influenza_Attack2State : BossState{
             _curTime = 0;
             attackCount++;
         }
-        if(attackCount >= _influenza.InfluenzaData.Attack2Count)
+
+        if (attackCount >= _influenza.InfluenzaData.Attack2Count)
+        {
+            attackCount = 0;
             _influenza.TransitionState(BossStateType.Idle);
+        }
     }
 }

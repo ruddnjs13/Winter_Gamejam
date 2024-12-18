@@ -17,7 +17,7 @@ public class Influenza_Attack3State : BossState
         _curTime += Time.deltaTime;
         if (_curTime >= _influenza.InfluenzaData.Attack3Speed)
         {
-            BossProjectile bossProjectile =  PoolManager.Instance.Pop("BossProjectile1") as BossProjectile;
+            BossProjectile bossProjectile =  PoolManager.Instance.Pop("BossProjectile2") as BossProjectile;
             _moveDir = _influenza.GetPlayerPosition().position - _influenza.transform.position;
             float angle = Mathf.Atan2(_moveDir.y, _moveDir.x) * Mathf.Rad2Deg;
             bossProjectile.transform.position = _influenza.transform.position;
@@ -25,7 +25,11 @@ public class Influenza_Attack3State : BossState
             _curTime = 0;
             attackCount++;
         }
-        if(attackCount >= _influenza.InfluenzaData.Attack3Count)
+
+        if (attackCount >= _influenza.InfluenzaData.Attack3Count)
+        {
+            attackCount = 0;
             _influenza.TransitionState(BossStateType.Idle);
+        }
     }
 }
