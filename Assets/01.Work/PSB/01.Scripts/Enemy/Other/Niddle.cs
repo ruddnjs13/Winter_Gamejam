@@ -6,14 +6,6 @@ public class Niddle : MonoBehaviour, IPoolable
 
     public GameObject objectPrefab => gameObject;
 
-    private void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            PoolManager.Instance.Push(this);
-        }*/
-    }
-
     public void ResetItem()
     {
     }

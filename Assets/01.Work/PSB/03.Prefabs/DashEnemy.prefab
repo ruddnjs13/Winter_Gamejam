@@ -60,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e33509e15f3b2df47bd6292273bbd910, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -185,6 +185,8 @@ MonoBehaviour:
   moveSpeed: 3
   attackRange: 1
   player: {fileID: 0}
+  mat: {fileID: 2100000, guid: e33509e15f3b2df47bd6292273bbd910, type: 2}
+  fadeDuration: 1
   dashDistance: 5
   dashCooldown: 3
   dashDuration: 0.2
@@ -203,6 +205,8 @@ MonoBehaviour:
   moveSpeed: 3
   attackRange: 1
   player: {fileID: 0}
+  mat: {fileID: 2100000, guid: e33509e15f3b2df47bd6292273bbd910, type: 2}
+  fadeDuration: 1
 --- !u!96 &7940466617083352341
 TrailRenderer:
   serializedVersion: 3
@@ -249,7 +253,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 2
-  m_PreviewTimeScale: 0
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
