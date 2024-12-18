@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class Influenza : Boss
 {
@@ -9,6 +10,8 @@ public class Influenza : Boss
     public Vector3 DefaultTransform {get; private set;}
 
     [SerializeField] private List<GameObject> _shields;
+
+    public UnityEvent OnDead;
     
     
     protected override void Awake(){
@@ -54,6 +57,7 @@ public class Influenza : Boss
     private void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.CompareTag("Weapon") && _shields.Count == 0)
         {
+            OnDead?.Invoke();
             Destroy(gameObject);
         }
     }
