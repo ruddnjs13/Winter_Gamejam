@@ -8,4 +8,6 @@ public class InfluenzaData : ScriptableObject{
     public float rotationSpeed;
     public float Attack2Speed;
     public int Attack2Count;
+    public float Attack3Speed;
+    public int Attack3Count;
 }

@@ -21,7 +21,6 @@ public class Influenza_Attack1State : BossState
         if (Physics2D.OverlapCircle(_influenza.transform.position,_influenza.InfluenzaData.checkGroundRadius, _influenza._whatIsGround))
         {
             _isHit = true;
-            _influenza.RbCompo.linearVelocity = Vector2.zero;
         }
     }
 
@@ -29,8 +28,11 @@ public class Influenza_Attack1State : BossState
         if (_isHit)
         {
             _waitTimeCounter += Time.deltaTime;
-            if(_waitTimeCounter >= _waitTime)
+            if (_waitTimeCounter >= _waitTime)
+            {
+                _waitTimeCounter = 0;
                 _influenza.TransitionState(BossStateType.Return);
+            }
         }
     }
 }

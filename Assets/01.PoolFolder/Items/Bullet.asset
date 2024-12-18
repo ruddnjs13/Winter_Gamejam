@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61b3e8d9002a7147b533a322a890fdd, type: 3}
-  m_Name: InfluenzaDataSO
+  m_Script: {fileID: 11500000, guid: 8ef9250e64232d048b67802df763f8d3, type: 3}
+  m_Name: Bullet
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  returnSpeed: 3
-  checkGroundRadius: 1.68
-  rotationSpeed: 100
-  Attack2Speed: 0.15
-  Attack2Count: 40
-  Attack3Speed: 0.3
-  Attack3Count: 20
+  poolName: Bullet
+  prefab: {fileID: 2057056042465842050, guid: c32bb29a628f3e74fa1a6df9b37b48fe, type: 3}
+  count: 10

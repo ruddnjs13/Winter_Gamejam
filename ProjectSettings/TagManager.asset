@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - Obstacle
   - Ground
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Projectile
   - Obstacle
   - BossProjectile
-  - 
+  - Bullet
   - 
   - 
   - 

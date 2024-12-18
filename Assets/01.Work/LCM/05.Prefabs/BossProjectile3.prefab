@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8171917413670167560}
   - component: {fileID: 7223713908017226406}
   m_Layer: 13
-  m_Name: BossProjectile1
+  m_Name: BossProjectile3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 1103064129
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 641515894465698295, guid: 2886f22b3ef15fb40b7f613e96074073, type: 3}
+  m_Sprite: {fileID: -2939801824191070668, guid: 2886f22b3ef15fb40b7f613e96074073, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66bce6124e02de438b0ed6e8efd0c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 10
+  _moveSpeed: 8
 --- !u!58 &8171917413670167560
 CircleCollider2D:
   m_ObjectHideFlags: 0
