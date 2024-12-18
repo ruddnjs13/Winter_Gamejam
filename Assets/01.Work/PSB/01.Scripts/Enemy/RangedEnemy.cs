@@ -39,6 +39,15 @@ public class RangedEnemy : Enemy, IPoolable
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Weapon")
+        {
+            PoolManager.Instance.Push(this);
+            WaveManager.Instance.EnemyDefeated();
+        }
+    }
+
     private void Shoot()
     {
         EnemyProjectile bullet = PoolManager.Instance.Pop("EnemyProjectile") as EnemyProjectile;
