@@ -253,6 +253,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &213816834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 213816835}
+  m_Layer: 10
+  m_Name: RotationObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &213816835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213816834}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 500187845}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &273830117
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +438,7 @@ GameObject:
   - component: {fileID: 500187846}
   - component: {fileID: 500187847}
   - component: {fileID: 500187848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,6 +459,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1572215570}
+  - {fileID: 213816835}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &500187846
@@ -447,6 +479,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   <PestData>k__BackingField: {fileID: 11400000, guid: 910e06e276259954e83a74f130f9bcb8, type: 2}
+  <RotationObject>k__BackingField: {fileID: 213816834}
 --- !u!61 &500187847
 BoxCollider2D:
   m_ObjectHideFlags: 0

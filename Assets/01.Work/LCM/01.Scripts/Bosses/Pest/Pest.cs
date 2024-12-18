@@ -4,6 +4,7 @@ using System;
 public class Pest : Boss
 {
     [field: SerializeField] public PestData PestData { get; private set; }
+    [field: SerializeField] public GameObject RotationObject { get; private set; }
     protected override void Awake(){
         base.Awake();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
