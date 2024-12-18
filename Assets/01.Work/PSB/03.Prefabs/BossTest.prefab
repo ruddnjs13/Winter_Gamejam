@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8448322174331541049}
   - component: {fileID: 566019104319307992}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BossTest
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
