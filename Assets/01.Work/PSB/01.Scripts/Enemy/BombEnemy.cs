@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BombEnemy : MonoBehaviour
+public class BombEnemy : MonoBehaviour, IPoolable
 {
     public float moveSpeed = 3f;
     public float attackRange = 1f;
@@ -8,6 +8,10 @@ public class BombEnemy : MonoBehaviour
     private bool isMoving = false;
 
     private Transform player;
+
+    public string PoolName => "BombEnemy";
+
+    public GameObject objectPrefab => gameObject;
 
     private void Start()
     {
@@ -51,5 +55,10 @@ public class BombEnemy : MonoBehaviour
         targetPosition = player.position;
         isMoving = true;
     }
+
+    public void ResetItem()
+    {
+    }
+
 
 }

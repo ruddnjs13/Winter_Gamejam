@@ -1,11 +1,15 @@
 using UnityEngine;
 
-public class MeleeEnemy : MonoBehaviour
+public class MeleeEnemy : MonoBehaviour, IPoolable
 {
     public float moveSpeed = 3f;
     public float attackRange = 1f;
 
     private Transform player;
+
+    public string PoolName => "MeleeEnemy";
+
+    public GameObject objectPrefab => gameObject;
 
     private void Awake()
     {
@@ -41,5 +45,9 @@ public class MeleeEnemy : MonoBehaviour
     private void MoveTowardsPlayer()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+    }
+
+    public void ResetItem()
+    {
     }
 }
