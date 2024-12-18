@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Influenza_ReturnState : BossState{
     private Vector2 _moveDir;
-    
+    private Vector2 _nowPos;
+    private float epsilon = 0.03f;
     public Influenza_ReturnState(Influenza influenza) : base(influenza){
     }
 
@@ -13,8 +14,15 @@ public class Influenza_ReturnState : BossState{
 
     public override void FixedUpdateState(){
         _influenza.RbCompo.linearVelocity = _moveDir.normalized * _influenza.InfluenzaData.returnSpeed;
-        if(_influenza.transform.position == _influenza.DefaultTransform.position)
+    }
+
+    public override void UpdateState(){
+        _nowPos = _influenza.transform.position;
+        Debug.Log(_nowPos);
+        if (Mathf.Abs(_nowPos.x) < epsilon || Mathf.Abs(_nowPos.y) < epsilon)
+        {
             _influenza.TransitionState(BossStateType.Idle);
+        }
     }
 
     protected override void ExitState(){

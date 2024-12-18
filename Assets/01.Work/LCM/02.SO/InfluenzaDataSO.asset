@@ -18,3 +18,5 @@ MonoBehaviour:
   rotationSpeed: 100
   Attack2Speed: 0.25
   Attack2Count: 50
+  Attack3Speed: 0.3
+  Attack3Count: 20
