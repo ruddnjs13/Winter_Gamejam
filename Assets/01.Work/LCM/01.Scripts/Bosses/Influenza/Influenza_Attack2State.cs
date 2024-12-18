@@ -3,7 +3,7 @@ using UnityEngine;
 public class Influenza_Attack2State : BossState{
     private float _curTime;
     private int attackCount;
-    public Influenza_Attack2State(Influenza influenza) : base(influenza){
+    public Influenza_Attack2State(Influenza smallPox) : base(smallPox){
     }
 
     protected override void EnterState(){

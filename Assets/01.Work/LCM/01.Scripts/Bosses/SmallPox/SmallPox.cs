@@ -1,9 +1,16 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class SmallPox : Boss
 {
     [field: SerializeField] public SmallPoxData SmallPoxData { get; private set; }
+    
+    public List<Sprite> ShieldSprite { get; private set; }
+    
+    public Vector3 DefaultTransform {get; private set;}
+
+    public LayerMask _whatIsGround;
     protected override void Awake(){
         base.Awake();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
@@ -20,10 +27,11 @@ public class SmallPox : Boss
                 // ignored
             }
         }
+        DefaultTransform = transform.position;
     }
 
     private void Start(){
-        TransitionState(BossStateType.Idle);
+        TransitionState(BossStateType.Attack1);
     }
     
     public void RandomAttack(){
@@ -40,5 +48,10 @@ public class SmallPox : Boss
                 TransitionState(BossStateType.Attack3);
                 break;
         }
+    }
+    protected override void OnDrawGizmos(){
+        base.OnDrawGizmos();
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, SmallPoxData.checkGroundRadius);
     }
 }

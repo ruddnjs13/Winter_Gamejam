@@ -32,7 +32,6 @@ public class Influenza : Boss
             }
         }
         DefaultTransform = transform.position;
-        Debug.Log(DefaultTransform);
     }
 
     private void Start(){

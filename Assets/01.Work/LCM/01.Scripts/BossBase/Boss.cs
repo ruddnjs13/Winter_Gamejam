@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Boss : MonoBehaviour{
+public abstract class Boss : MonoBehaviour
+{
     [SerializeField] private Vector2 _playerCheckerBoxSize;
     [SerializeField] private LayerMask _whatIsPlayer;
 
