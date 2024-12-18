@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 5512985802197359872, guid: f85f548f10d051c4c84a83cf062a6513, type: 3}
   shootRange: 7
-  chaseRange: 10
+  chaseRange: 15
   shootInterval: 2
 --- !u!58 &4319630741689701280
 CircleCollider2D:

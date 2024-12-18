@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RangedEnemy : MonoBehaviour
+public class RangedEnemy : MonoBehaviour, IPoolable
 {
     public GameObject projectilePrefab;
     public float shootRange = 5f;
@@ -8,6 +8,10 @@ public class RangedEnemy : MonoBehaviour
     public float shootInterval = 2f;
     private Transform player;
     private float lastShotTime;
+
+    public string PoolName => "RangedEnemy";
+
+    public GameObject objectPrefab => gameObject;
 
     private void Start()
     {
@@ -55,6 +59,10 @@ public class RangedEnemy : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, 3f * Time.deltaTime);
         }
+    }
+
+    public void ResetItem()
+    {
     }
 
 }

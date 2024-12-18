@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DashEnemy : MonoBehaviour
+public class DashEnemy : MonoBehaviour, IPoolable
 {
     public float moveSpeed = 3f;
     public float attackRange = 1f;
@@ -12,6 +12,10 @@ public class DashEnemy : MonoBehaviour
     private Transform player;
     private float lastDashTime = 0f;
     private bool isDashing = false;
+
+    public string PoolName => "DashEnemy";
+
+    public GameObject objectPrefab => gameObject;
 
     private void Awake()
     {
@@ -72,6 +76,10 @@ public class DashEnemy : MonoBehaviour
 
         lastDashTime = Time.time;
         isDashing = false;
+    }
+
+    public void ResetItem()
+    {
     }
 
 
