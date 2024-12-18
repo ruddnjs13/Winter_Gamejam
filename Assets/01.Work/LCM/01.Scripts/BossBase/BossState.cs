@@ -2,10 +2,21 @@ using UnityEngine;
 
 public class BossState{
     protected Pest _pest;
+    protected SmallPox _smallPox;
+    protected Influenza _influenza;
 
     public BossState(Pest pest){
         _pest = pest;
     }
+
+    public BossState(SmallPox smallPox){
+        _smallPox = smallPox;
+    }
+
+    public BossState(Influenza influenza){
+        _influenza = influenza;
+    }
+    
     protected virtual void EnterState()
     {
 

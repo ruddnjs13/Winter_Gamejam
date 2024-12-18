@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dfe1fe03dbdc04e8e4db72c7c40bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PestData>k__BackingField: {fileID: 11400000, guid: 910e06e276259954e83a74f130f9bcb8, type: 2}
 --- !u!61 &500187847
 BoxCollider2D:
   m_ObjectHideFlags: 0
