@@ -187,7 +187,6 @@ MonoBehaviour:
   moveSpeed: 6
   attackRange: 1
   player: {fileID: 0}
-  mat: {fileID: -876546973899608171, guid: 8c6c4a0033273fa408e2b5510b258dfb, type: 3}
   fadeDuration: 1
 --- !u!114 &4737719990583178125
 MonoBehaviour:
@@ -204,7 +203,6 @@ MonoBehaviour:
   moveSpeed: 3
   attackRange: 1
   player: {fileID: 0}
-  mat: {fileID: -876546973899608171, guid: 8c6c4a0033273fa408e2b5510b258dfb, type: 3}
   fadeDuration: 1
 --- !u!96 &6307750057451989360
 TrailRenderer:
@@ -214,7 +212,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3859808275432701183}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
