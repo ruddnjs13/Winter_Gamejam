@@ -10,6 +10,8 @@ public class WeaponArm : MonoBehaviour
     [SerializeField] private InputReader _inputReader;
     [SerializeField] private Transform _firePos;
     private SpriteRenderer _spriteRenderer;
+    
+    private ReloadUI _reloadUI;
 
     public UnityEvent shootEvent;
     
@@ -22,6 +24,7 @@ public class WeaponArm : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = transform.Find("Gun").GetComponent<SpriteRenderer>();
+        _reloadUI = transform.parent.GetComponentInChildren<ReloadUI>();
     }
 
     private void OnEnable()
@@ -37,14 +40,14 @@ public class WeaponArm : MonoBehaviour
     private void HandleAttackEvent()
     {
         if(!_canAttack) return;
-        StartCoroutine(AttackCoolCoroutine());
+        StartCoroutine(ReloadCoroutine());
         shootEvent?.Invoke();
         Bullet bullet =  PoolManager.Instance.Pop("Bullet") as Bullet;
         bullet.transform.position = _firePos.position;
         bullet.SetVelocity((Vector3)_inputReader.MousePos - transform.position);
     }
 
-    private  IEnumerator AttackCoolCoroutine()
+    private  IEnumerator ReloadCoroutine()
     {
         _canAttack = false;
         yield return new WaitForSeconds(_attackCooldown);
