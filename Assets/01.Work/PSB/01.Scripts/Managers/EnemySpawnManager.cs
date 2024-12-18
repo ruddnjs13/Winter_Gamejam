@@ -15,12 +15,13 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private GameObject bossPrefab3;
     [Space(10)]
     [Header("SpawnPoint")]
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private Transform bossSpawnpoint;
+    public Transform spawnPoint;
+    public Transform bossSpawnpoint;
     [Space(10)]
     [Header("List")]
     [SerializeField] private List<Transform> enemyTrans = new List<Transform>();
     [SerializeField] private List<Enemy> enemyLists = new List<Enemy>();
+    [SerializeField] private List<Boss> bossLists = new List<Boss>();
 
     public int enemiesAlive = 0;
 
@@ -30,11 +31,19 @@ public class EnemySpawnManager : MonoBehaviour
         enemiesAlive = 1;
     }
 
-    public void FiveDrainageMethod(GameObject prefab)
+    public void BossSpawnFiveMethod()
     {
-        //Boss
-        //PoolManager.Instance.Pop(prefab);
+        Instantiate(bossPrefab, bossSpawnpoint.position, Quaternion.identity);
     }
+    public void BossSpawnTenMethod()
+    {
+        Instantiate(bossPrefab2, bossSpawnpoint.position, Quaternion.identity);
+    }
+    public void BossSpawnFifteenMethod()
+    {
+        Instantiate(bossPrefab3, bossSpawnpoint.position, Quaternion.identity);
+    }
+
     public void WaveSpawnMethod()
     {
         GameObject enemyToSpawn;
@@ -76,6 +85,7 @@ public class EnemySpawnManager : MonoBehaviour
     public void EnemyClear()
     {
         enemyLists.Clear();
+        bossLists.Clear();
     }
 
 }

@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: c695fbe7dea62c941989062698642f21
+guid: a5f9fcc9165ee414a80a7f0436ec9035
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1776196672918590337
-    second: 9245f2fb56829d0c_0
+      213: 5245996804663030074
+    second: MeleeEnemySprite_0
   - first:
-      213: 5439543202515102048
-    second: 9245f2fb56829d0c_1
+      213: -5905925805109519530
+    second: MeleeEnemySprite_1
   - first:
-      213: 545357937260287515
-    second: 9245f2fb56829d0c_2
+      213: 2743798767645571504
+    second: MeleeEnemySprite_2
   - first:
-      213: -8170624086410284455
-    second: 9245f2fb56829d0c_3
+      213: -4961928555665226623
+    second: MeleeEnemySprite_3
   - first:
-      213: -5512101855654879156
-    second: 9245f2fb56829d0c_4
-  - first:
-      213: 5547983957618325525
-    second: 9245f2fb56829d0c_5
-  - first:
-      213: -6388088683719280035
-    second: 9245f2fb56829d0c_6
+      213: -57552546930931007
+    second: MeleeEnemySprite_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 23
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,30 +108,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 9245f2fb56829d0c_0
+      name: MeleeEnemySprite_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 15
-        width: 42
-        height: 41
+        x: 4
+        y: 4
+        width: 24
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1831b8c967156a810800000000000000
-      internalID: 1776196672918590337
+      spriteID: a3136c2ac468dc840800000000000000
+      internalID: 5245996804663030074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 9245f2fb56829d0c_1
+      name: MeleeEnemySprite_1
       rect:
         serializedVersion: 2
-        x: 74
-        y: 16
-        width: 42
-        height: 38
+        x: 38
+        y: 5
+        width: 21
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 069ad4609b32d7b40800000000000000
-      internalID: 5439543202515102048
+      spriteID: 65b52ac65cfe90ea0800000000000000
+      internalID: -5905925805109519530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 9245f2fb56829d0c_2
+      name: MeleeEnemySprite_2
       rect:
         serializedVersion: 2
-        x: 137
-        y: 15
-        width: 41
-        height: 39
+        x: 69
+        y: 5
+        width: 22
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b16d6dd8720819700800000000000000
-      internalID: 545357937260287515
+      spriteID: 0b93ba0217ee31620800000000000000
+      internalID: 2743798767645571504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 9245f2fb56829d0c_3
+      name: MeleeEnemySprite_3
       rect:
         serializedVersion: 2
-        x: 201
-        y: 15
-        width: 41
-        height: 38
+        x: 100
+        y: 4
+        width: 24
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 952b348eeac1c9e80800000000000000
-      internalID: -8170624086410284455
+      spriteID: 18405be9440b32bb0800000000000000
+      internalID: -4961928555665226623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 9245f2fb56829d0c_4
+      name: MeleeEnemySprite_4
       rect:
         serializedVersion: 2
-        x: 268
-        y: 15
-        width: 42
-        height: 40
+        x: 132
+        y: 4
+        width: 24
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,52 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c406bef01941183b0800000000000000
-      internalID: -5512101855654879156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 9245f2fb56829d0c_5
-      rect:
-        serializedVersion: 2
-        x: 332
-        y: 16
-        width: 41
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 518f765d3066efc40800000000000000
-      internalID: 5547983957618325525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 9245f2fb56829d0c_6
-      rect:
-        serializedVersion: 2
-        x: 396
-        y: 16
-        width: 41
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d5a383d0033f857a0800000000000000
-      internalID: -6388088683719280035
+      spriteID: 1ca43447348833ff0800000000000000
+      internalID: -57552546930931007
       vertices: []
       indices: 
       edges: []
@@ -298,13 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      9245f2fb56829d0c_0: 1776196672918590337
-      9245f2fb56829d0c_1: 5439543202515102048
-      9245f2fb56829d0c_2: 545357937260287515
-      9245f2fb56829d0c_3: -8170624086410284455
-      9245f2fb56829d0c_4: -5512101855654879156
-      9245f2fb56829d0c_5: 5547983957618325525
-      9245f2fb56829d0c_6: -6388088683719280035
+      MeleeEnemySprite_0: 5245996804663030074
+      MeleeEnemySprite_1: -5905925805109519530
+      MeleeEnemySprite_2: 2743798767645571504
+      MeleeEnemySprite_3: -4961928555665226623
+      MeleeEnemySprite_4: -57552546930931007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

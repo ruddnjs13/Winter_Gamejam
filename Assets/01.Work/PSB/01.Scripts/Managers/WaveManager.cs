@@ -47,19 +47,20 @@ public class WaveManager : MonoSingleton<WaveManager>
             waveTxt.text = $"BossWave";
             waveTxt.color = Color.red;
 
-            enemySpawnManager.FiveWaveMethod();
+            enemySpawnManager.spawnPoint = enemySpawnManager.bossSpawnpoint;
+            enemySpawnManager.enemiesAlive = 1;
 
             /*if (currentWave == 5)
             {
-                Instantiate(bossPrefab, spawnPoint.position, Quaternion.identity);
+                //enemySpawnManager.BossSpawnMethod("");
             }
             else if (currentWave == 10)
             {
-                Instantiate(bossPrefab2, spawnPoint.position, Quaternion.identity);
+                
             }
             else if (currentWave == 15)
             {
-                Instantiate(bossPrefab3, spawnPoint.position, Quaternion.identity);
+                //Instantiate(bossPrefab3, spawnPoint.position, Quaternion.identity);
             }*/
 
         }
