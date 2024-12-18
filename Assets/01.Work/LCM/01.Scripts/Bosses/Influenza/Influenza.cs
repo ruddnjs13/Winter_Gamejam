@@ -1,11 +1,17 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class Influenza : Boss
 {
     [field: SerializeField] public InfluenzaData InfluenzaData { get; private set; }
     [field: SerializeField] public LayerMask _whatIsGround { get; private set; }
-    [field: SerializeField] public Transform DefaultTransform {get; private set;}
+    public Vector3 DefaultTransform {get; private set;}
+
+    [SerializeField] private List<GameObject> _shields;
+
+    public UnityEvent OnDead;
     
     
     protected override void Awake(){
@@ -24,10 +30,12 @@ public class Influenza : Boss
                 // ignored
             }
         }
+        DefaultTransform = transform.position;
+        Debug.Log(DefaultTransform);
     }
 
     private void Start(){
-        TransitionState(BossStateType.Attack2);
+        TransitionState(BossStateType.Idle);
     }
 
     public void RandomAttack(){
@@ -44,6 +52,19 @@ public class Influenza : Boss
                 TransitionState(BossStateType.Attack3);
                 break;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other){
+        if (other.gameObject.CompareTag("Weapon") && _shields.Count == 0)
+        {
+            OnDead?.Invoke();
+            Destroy(gameObject);
+        }
+    }
+
+    public void RemoveList(GameObject shield)
+    {
+        _shields.Remove(shield);
     }
 
     protected override void OnDrawGizmos(){

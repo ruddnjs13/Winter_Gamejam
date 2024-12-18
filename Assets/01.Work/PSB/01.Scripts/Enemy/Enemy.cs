@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Destroy(gameObject);
-            //PoolManager.Instance.Push();
+            //PoolManager.Instance.Push(this);
             WaveManager.Instance.EnemyDefeated();
         }
     }
