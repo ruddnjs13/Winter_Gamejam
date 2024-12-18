@@ -60,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e33509e15f3b2df47bd6292273bbd910, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,6 +170,8 @@ MonoBehaviour:
   moveSpeed: 3
   attackRange: 1
   player: {fileID: 0}
+  mat: {fileID: 2100000, guid: e33509e15f3b2df47bd6292273bbd910, type: 2}
+  fadeDuration: 1
   projectilePrefab: {fileID: 5512985802197359872, guid: f85f548f10d051c4c84a83cf062a6513, type: 3}
   shootRange: 7
   chaseRange: 15
@@ -189,6 +191,8 @@ MonoBehaviour:
   moveSpeed: 3
   attackRange: 1
   player: {fileID: 0}
+  mat: {fileID: 2100000, guid: e33509e15f3b2df47bd6292273bbd910, type: 2}
+  fadeDuration: 1
 --- !u!96 &720333157054551452
 TrailRenderer:
   serializedVersion: 3
@@ -235,7 +239,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 2
-  m_PreviewTimeScale: 0
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

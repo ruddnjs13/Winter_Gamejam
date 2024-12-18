@@ -82,7 +82,7 @@ public class WaveManager : MonoSingleton<WaveManager>
             for (int i = 0; i < numberOfEnemies; i++)
             {
                 waveTxt.text = $"Wave : {currentWave}";
-                waveTxt.color = Color.white;
+                waveTxt.color = Color.black;
 
                 GameObject enemyToSpawn;
                 string enemyName;
@@ -139,13 +139,18 @@ public class WaveManager : MonoSingleton<WaveManager>
 
     private void SpawnSpike()
     {
-        Niddle spike = PoolManager.Instance.Pop("Niddle") as Niddle; 
-        if (spike != null)
+        for (int i = 0; i < niddleTrans.Count; i++)
         {
-            spawnPoint = niddleTrans[UnityEngine.Random.Range(0, niddleTrans.Count)];
-            spike.transform.position = spawnPoint.position;
-            niddleLists.Add(spike);
+            Niddle spike = PoolManager.Instance.Pop("Niddle") as Niddle;
+            if (spike != null)
+            {
+                spawnPoint = niddleTrans[UnityEngine.Random.Range(0, niddleTrans.Count)];
+                spike.transform.position = spawnPoint.position;
+                niddleLists.Add(spike);
+                niddleTrans.Remove(spawnPoint);
+            }
         }
+        
     }
 
     private void ClearAll()
@@ -168,7 +173,7 @@ public class WaveManager : MonoSingleton<WaveManager>
             yield return new WaitForSeconds(1f);
         }
 
-        waveCountTxt.text = "Start!";
+        waveCountTxt.text = "적들이 몰려옵니다!";
         yield return new WaitForSeconds(1f);
 
         waveCountTxt.gameObject.SetActive(false);
