@@ -6,20 +6,24 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 3f;
     public float attackRange = 1f;
     public Transform player;
-    [SerializeField] private Material mat;
+    /*[SerializeField] private Material mat;
+    private SpriteRenderer sprite;*/
 
     private int fadeHash;
     public float fadeDuration = 1f;
 
+    private void Start()
+    {
+        //sprite = GetComponent<SpriteRenderer>();
+        
+        //mat = sprite.material;
+        //fadeHash = Shader.PropertyToID("_Fade");
+        //mat.SetFloat(fadeHash, 1f);
+    }
+
     private void Awake()
     {
-        Debug.Log(1);
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        Debug.Log(2);
-        fadeHash = Shader.PropertyToID("_Fade");
-        Debug.Log(3);
-        mat.SetFloat("_Fade", 1f);
-        Debug.Log(4);
     }
 
     private void Update()
@@ -27,29 +31,12 @@ public class Enemy : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Destroy(gameObject);
-            //PoolManager.Instance.Push(this);
             WaveManager.Instance.EnemyDefeated();
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(collision.gameObject);
-            StartCoroutine(ShaderCoroutine());
-        }
-    }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(collision.gameObject);
-        }
-    }
-
-    private IEnumerator ShaderCoroutine()
+    /*private IEnumerator ShaderCoroutine()
     {
         float fadeValue = 1f;
 
@@ -58,13 +45,13 @@ public class Enemy : MonoBehaviour
             fadeValue -= 0.1f; 
             fadeValue = Mathf.Max(fadeValue, 0); 
 
-            mat.SetFloat("_Fade", fadeValue);
+            mat.SetFloat(fadeHash, fadeValue);
 
             yield return new WaitForSeconds(fadeDuration / 10); 
         }
 
-        mat.SetFloat("_Fade", 0f);
+        mat.SetFloat(fadeHash, 0f);
         WaveManager.Instance.EnemyDefeated();
-    }
+    }*/
 
 }

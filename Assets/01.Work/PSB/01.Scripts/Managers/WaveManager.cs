@@ -111,13 +111,23 @@ public class WaveManager : MonoSingleton<WaveManager>
                         enemyName = "MeleeEnemy";
                         break;
                 }
-                spawnPoint = trans[UnityEngine.Random.Range(0, trans.Count)];
+                int randomPoint = UnityEngine.Random.Range(0, trans.Count);
+                Vector2 randomOffset = UnityEngine.Random.insideUnitCircle;
+                Vector2 spawnedPoint = trans[randomPoint].position + (Vector3)randomOffset;
+                //spawnPoint = trans[UnityEngine.Random.Range(0, trans.Count)];
                 Enemy enemy = PoolManager.Instance.Pop(enemyName) as Enemy;
-                enemy.transform.position = spawnPoint.position;
+                enemy.transform.position = spawnedPoint + randomOffset;
                 enemyLists.Add(enemy);
             }
             enemiesAlive = numberOfEnemies;
         }
+    }
+
+    private void EnemySpawn()
+    {
+        int randomPoint = UnityEngine.Random.Range(0, trans.Count);
+        Vector2 randomOffset = UnityEngine.Random.insideUnitCircle;
+        Vector2 spawnedPoint = trans[randomPoint].position + (Vector3)randomOffset;
     }
 
     public void EnemyDefeated()
@@ -139,7 +149,7 @@ public class WaveManager : MonoSingleton<WaveManager>
 
     private void SpawnSpike()
     {
-        for (int i = 0; i < niddleTrans.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
             Niddle spike = PoolManager.Instance.Pop("Niddle") as Niddle;
             if (spike != null)
