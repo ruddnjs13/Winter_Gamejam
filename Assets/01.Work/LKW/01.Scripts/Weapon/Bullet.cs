@@ -19,6 +19,10 @@ public class Bullet : MonoBehaviour,IPoolable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("충돌함");
+        if (collision.CompareTag("Boss"))
+        {
+            PoolManager.Instance.Push(this);
+        }
         if ((0 << collision.gameObject.layer & _whatIsTarget) != 0)
         {
             PoolManager.Instance.Push(collision as IPoolable);
