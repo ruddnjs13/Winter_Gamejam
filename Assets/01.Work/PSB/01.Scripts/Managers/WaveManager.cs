@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class WaveManager : MonoSingleton<WaveManager>
 {
@@ -72,28 +74,36 @@ public class WaveManager : MonoSingleton<WaveManager>
                 waveTxt.color = Color.white;
 
                 GameObject enemyToSpawn;
-                int enemyType = Random.Range(0, 4);
+                string enemyName;
+                int enemyType = UnityEngine.Random.Range(0, 4);
 
                 switch (enemyType)
                 {
                     case 0:
                         enemyToSpawn = meleeEnemyPrefab;
+                        enemyName = "MeleeEnemy";
                         break;
                     case 1:
                         enemyToSpawn = rangedEnemyPrefab;
+                        enemyName = "RangedEnemy";
                         break;
                     case 2:
                         enemyToSpawn = bombEnemyPrefab;
+                        enemyName = "BombEnemy";
                         break;
                     case 3:
                         enemyToSpawn = dashEnemyPrefab;
+                        enemyName = "DashEnemy";
                         break;
                     default:
                         enemyToSpawn = meleeEnemyPrefab;
+                        enemyName = "MeleeEnemy";
                         break;
                 }
-                spawnPoint = trans[Random.Range(0, trans.Count)];
-                Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
+                spawnPoint = trans[UnityEngine.Random.Range(0, trans.Count)];
+                //Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
+                Enemy enemy = PoolManager.Instance.Pop(enemyName) as Enemy;
+                enemy.transform.position = spawnPoint.position;
             }
             enemiesAlive = numberOfEnemies;
         }

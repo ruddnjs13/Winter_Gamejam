@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2886971118694483681}
   - component: {fileID: 7493197484791084968}
   - component: {fileID: 4920712219360397335}
+  - component: {fileID: -6882412889190208424}
   m_Layer: 8
   m_Name: DashEnemy
   m_TagString: Enemy
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   attackRange: 1
+  player: {fileID: 0}
   dashDistance: 5
   dashCooldown: 3
   dashDuration: 0.2
@@ -157,3 +159,18 @@ PolygonCollider2D:
       - {x: 0, y: -0.25}
       - {x: 0.5, y: 0}
   m_UseDelaunayMesh: 0
+--- !u!114 &-6882412889190208424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709968066602584493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3aa076863b01a4085da7fee69cbcdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  attackRange: 1
+  player: {fileID: 0}
