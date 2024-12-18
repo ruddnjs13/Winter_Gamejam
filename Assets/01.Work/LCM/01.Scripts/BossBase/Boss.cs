@@ -4,12 +4,14 @@ using UnityEngine;
 public abstract class Boss : MonoBehaviour
 {
     public Rigidbody2D RbCompo { get; private set; }
+    public BossAnimationPlay AnimationPlay { get; private set; }
     
     protected Dictionary<BossStateType, BossState> StateEnum = new Dictionary<BossStateType, BossState>();
     public BossStateType CurrentState { get; private set; }
 
     protected virtual void Awake(){
         RbCompo = GetComponent<Rigidbody2D>();
+        AnimationPlay = GetComponentInChildren<BossAnimationPlay>();
     }
     
     public void TransitionState(BossStateType newState)
