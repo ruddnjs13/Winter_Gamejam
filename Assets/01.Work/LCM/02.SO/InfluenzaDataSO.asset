@@ -15,6 +15,6 @@ MonoBehaviour:
   moveSpeed: 10
   returnSpeed: 3
   checkGroundRadius: 1.94
-  rotationSpeed: 10
-  Attack2Speed: 1
+  rotationSpeed: 30
+  Attack2Speed: 1.5
   Attack2Count: 20
