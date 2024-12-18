@@ -10,6 +10,7 @@ public class NiddleManager : MonoSingleton<NiddleManager>
 
     public void SpawnUnderSpike()
     {
+        //Enemy처럼 표시하고 생성하기
         for (int i = 0; i < 3; i++)
         {
             Niddle spike = PoolManager.Instance.Pop("Niddle") as Niddle;

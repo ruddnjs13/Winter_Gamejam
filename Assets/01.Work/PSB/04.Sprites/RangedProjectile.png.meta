@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 9e97262414458c14994c82cb8dccb0f2
+guid: 0d91276f319bf964e872774102927b1c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 185483126309842203
-    second: RangedEnemySprite_0
+      213: 8339522356922701123
+    second: RangedProjectile_0
   - first:
-      213: -5506645767383046227
-    second: RangedEnemySprite_1
+      213: 6201801765291209033
+    second: RangedProjectile_1
   - first:
-      213: 4913255256195268040
-    second: RangedEnemySprite_2
+      213: 5715590747150073678
+    second: RangedProjectile_2
   - first:
-      213: 7716842219160069271
-    second: RangedEnemySprite_3
+      213: -8092170893646287307
+    second: RangedProjectile_3
   - first:
-      213: -8482632035703335675
-    second: RangedEnemySprite_4
+      213: 7907582308379890498
+    second: RangedProjectile_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -112,111 +112,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RangedEnemySprite_0
+      name: RangedProjectile_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 3
+        y: 5
+        width: 16
+        height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1de68fabe7f29200800000000000000
-      internalID: 185483126309842203
+      spriteID: 3455ec0266febb370800000000000000
+      internalID: 8339522356922701123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RangedEnemySprite_1
+      name: RangedProjectile_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 7
+        y: 21
+        width: 11
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da7a93b99d67493b0800000000000000
-      internalID: -5506645767383046227
+      spriteID: 941b293d8d9311650800000000000000
+      internalID: 6201801765291209033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RangedEnemySprite_2
+      name: RangedProjectile_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 8
+        y: 9
+        width: 15
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cdf65cbf936f2440800000000000000
-      internalID: 4913255256195268040
+      spriteID: e4fb365808bd15f40800000000000000
+      internalID: 5715590747150073678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RangedEnemySprite_3
+      name: RangedProjectile_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
+        x: 17
+        y: 11
+        width: 10
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 794e5ccdc1bb71b60800000000000000
-      internalID: 7716842219160069271
+      spriteID: 53e25764275d2bf80800000000000000
+      internalID: -8092170893646287307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RangedEnemySprite_4
+      name: RangedProjectile_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
+        x: 19
+        y: 5
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 505dd8f3b13a74a80800000000000000
-      internalID: -8482632035703335675
+      spriteID: 243952b96306dbd60800000000000000
+      internalID: 7907582308379890498
       vertices: []
       indices: 
       edges: []
@@ -225,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cda41faca19ac94418392c973e59ce75
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RangedEnemySprite_0: 185483126309842203
-      RangedEnemySprite_1: -5506645767383046227
-      RangedEnemySprite_2: 4913255256195268040
-      RangedEnemySprite_3: 7716842219160069271
-      RangedEnemySprite_4: -8482632035703335675
+      RangedProjectile_0: 8339522356922701123
+      RangedProjectile_1: 6201801765291209033
+      RangedProjectile_2: 5715590747150073678
+      RangedProjectile_3: -8092170893646287307
+      RangedProjectile_4: 7907582308379890498
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 9e97262414458c14994c82cb8dccb0f2
+guid: 737494bcd9ff69e4488edf961387d30f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 185483126309842203
-    second: RangedEnemySprite_0
+      213: -3255794689422978078
+    second: Niddles_0
   - first:
-      213: -5506645767383046227
-    second: RangedEnemySprite_1
+      213: 7207804555528712095
+    second: Niddles_1
   - first:
-      213: 4913255256195268040
-    second: RangedEnemySprite_2
-  - first:
-      213: 7716842219160069271
-    second: RangedEnemySprite_3
-  - first:
-      213: -8482632035703335675
-    second: RangedEnemySprite_4
+      213: 1871930128055327206
+    second: Niddles_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -112,111 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RangedEnemySprite_0
+      name: Niddles_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1de68fabe7f29200800000000000000
-      internalID: 185483126309842203
+      spriteID: 2e3175bdaf711d2d0800000000000000
+      internalID: -3255794689422978078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RangedEnemySprite_1
+      name: Niddles_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 0
-        width: 32
-        height: 32
+        width: 9
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da7a93b99d67493b0800000000000000
-      internalID: -5506645767383046227
+      spriteID: f9f2bbefd04470460800000000000000
+      internalID: 7207804555528712095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RangedEnemySprite_2
+      name: Niddles_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 25
         y: 0
-        width: 32
-        height: 32
+        width: 7
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cdf65cbf936f2440800000000000000
-      internalID: 4913255256195268040
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RangedEnemySprite_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 794e5ccdc1bb71b60800000000000000
-      internalID: 7716842219160069271
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RangedEnemySprite_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 505dd8f3b13a74a80800000000000000
-      internalID: -8482632035703335675
+      spriteID: 6e9d617988e6af910800000000000000
+      internalID: 1871930128055327206
       vertices: []
       indices: 
       edges: []
@@ -225,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cda41faca19ac94418392c973e59ce75
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RangedEnemySprite_0: 185483126309842203
-      RangedEnemySprite_1: -5506645767383046227
-      RangedEnemySprite_2: 4913255256195268040
-      RangedEnemySprite_3: 7716842219160069271
-      RangedEnemySprite_4: -8482632035703335675
+      Niddles_0: -3255794689422978078
+      Niddles_1: 7207804555528712095
+      Niddles_2: 1871930128055327206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
