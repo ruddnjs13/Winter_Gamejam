@@ -47,30 +47,30 @@ public class Player : MonoBehaviour
     {
         if (isVerticalMove)
         {
+            _playerRenderer.Flip(transform.position.y > _inputReader.MousePos.y);
+
             if (isReverseMove)
             {
-                _playerRenderer.Flip(-_inputReader.MoveDir.y);
                 _playerMove.SetVelocity(-_inputReader.MoveDir.y * _moveSpeed);
                 _playerRenderer.SetMoveXHash(Mathf.Abs(_inputReader.MoveDir.y));
             }
             else
             {
-                _playerRenderer.Flip(_inputReader.MoveDir.y);
                 _playerMove.SetVelocity(_inputReader.MoveDir.y * _moveSpeed);
                 _playerRenderer.SetMoveXHash(Mathf.Abs(_inputReader.MoveDir.y));
             }
         }
         else
         {
+            _playerRenderer.Flip(transform.position.x > _inputReader.MousePos.x);
+
             if (isReverseMove)
             {
-                _playerRenderer.Flip(-_inputReader.MoveDir.x);
                 _playerMove.SetVelocity(-_inputReader.MoveDir.x * _moveSpeed);
                 _playerRenderer.SetMoveXHash(Mathf.Abs(_inputReader.MoveDir.x));
             }
             else
             {
-                _playerRenderer.Flip(_inputReader.MoveDir.x);
                 _playerMove.SetVelocity(_inputReader.MoveDir.x * _moveSpeed);
                 _playerRenderer.SetMoveXHash(Mathf.Abs(_inputReader.MoveDir.x));
             }
