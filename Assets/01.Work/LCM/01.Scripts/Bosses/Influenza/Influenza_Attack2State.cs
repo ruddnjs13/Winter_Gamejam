@@ -15,7 +15,9 @@ public class Influenza_Attack2State : BossState{
         _curTime += Time.deltaTime;
         if (_curTime >= _influenza.InfluenzaData.Attack2Speed)
         {
-            
+            BossProjectile bossProjectile =  PoolManager.Instance.Pop("BossProjectile1") as BossProjectile;
+            bossProjectile.transform.position = _influenza.transform.position;
+            bossProjectile.transform.rotation = _influenza.transform.rotation;
             _curTime = 0;
             attackCount++;
         }

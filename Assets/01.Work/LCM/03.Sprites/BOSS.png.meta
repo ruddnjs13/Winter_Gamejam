@@ -23,9 +23,6 @@ TextureImporter:
   - first:
       213: -6374971649757369942
     second: BOSS_6
-  - first:
-      213: 8757141913309609707
-    second: BOSS_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -137,10 +134,10 @@ TextureImporter:
       name: BOSS_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 15
-        width: 41
-        height: 42
+        x: 15
+        y: 16
+        width: 33
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +156,10 @@ TextureImporter:
       name: BOSS_1
       rect:
         serializedVersion: 2
-        x: 75
-        y: 13
-        width: 42
-        height: 44
+        x: 79
+        y: 16
+        width: 33
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +178,10 @@ TextureImporter:
       name: BOSS_2
       rect:
         serializedVersion: 2
-        x: 140
-        y: 13
-        width: 40
-        height: 42
+        x: 143
+        y: 17
+        width: 33
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +200,10 @@ TextureImporter:
       name: BOSS_3
       rect:
         serializedVersion: 2
-        x: 205
-        y: 14
-        width: 38
-        height: 40
+        x: 207
+        y: 16
+        width: 33
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +222,10 @@ TextureImporter:
       name: BOSS_4
       rect:
         serializedVersion: 2
-        x: 268
-        y: 15
-        width: 40
-        height: 40
+        x: 271
+        y: 16
+        width: 33
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,10 +244,10 @@ TextureImporter:
       name: BOSS_5
       rect:
         serializedVersion: 2
-        x: 332
-        y: 14
-        width: 40
-        height: 41
+        x: 335
+        y: 16
+        width: 33
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,10 +266,10 @@ TextureImporter:
       name: BOSS_6
       rect:
         serializedVersion: 2
-        x: 397
+        x: 399
         y: 16
-        width: 38
-        height: 39
+        width: 33
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,33 +284,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: BOSS_7
-      rect:
-        serializedVersion: 2
-        x: 459
-        y: 15
-        width: 41
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: beef08e3c2e978970800000000000000
-      internalID: 8757141913309609707
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a839f56601dad764cba56de98977d74b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -330,7 +305,6 @@ TextureImporter:
       BOSS_4: 2120157964095900855
       BOSS_5: 7850570839207826655
       BOSS_6: -6374971649757369942
-      BOSS_7: 8757141913309609707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
