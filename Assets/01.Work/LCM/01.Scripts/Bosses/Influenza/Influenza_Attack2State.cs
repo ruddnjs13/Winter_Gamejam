@@ -13,9 +13,9 @@ public class Influenza_Attack2State : BossState{
     public override void UpdateState(){
         _influenza.transform.Rotate(0,0,_influenza.InfluenzaData.rotationSpeed * Time.deltaTime);
         _curTime += Time.deltaTime;
-        if (_curTime >= _influenza.InfluenzaData.Attack2Speed) ;
+        if (_curTime >= _influenza.InfluenzaData.Attack2Speed)
         {
-            Debug.Log("공격");
+            
             _curTime = 0;
             attackCount++;
         }
