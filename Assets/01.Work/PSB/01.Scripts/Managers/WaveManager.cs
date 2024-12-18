@@ -14,6 +14,7 @@ public class WaveManager : MonoSingleton<WaveManager>
     [SerializeField] private GameObject rangedEnemyPrefab;
     [SerializeField] private GameObject bombEnemyPrefab;
     [SerializeField] private GameObject dashEnemyPrefab;
+    [SerializeField] private GameObject testObj;
     [Space(10)]
     [Header("BossPrefab")]
     [SerializeField] private GameObject bossPrefab;
@@ -47,11 +48,16 @@ public class WaveManager : MonoSingleton<WaveManager>
 
         int numberOfEnemies = currentWave;
 
+        if (currentWave % 2 == 0)
+        {
+            PoolManager.Instance.Pop("Niddle");
+        }
         if (currentWave % 5 == 0)
         {
             spawnPoint = bossSpawnpoint;
             waveTxt.text = $"BossWave";
             waveTxt.color = Color.red;
+
             if (currentWave == 5)
             {
                 Instantiate(bossPrefab, spawnPoint.position, Quaternion.identity);
@@ -101,7 +107,6 @@ public class WaveManager : MonoSingleton<WaveManager>
                         break;
                 }
                 spawnPoint = trans[UnityEngine.Random.Range(0, trans.Count)];
-                //Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
                 Enemy enemy = PoolManager.Instance.Pop(enemyName) as Enemy;
                 enemy.transform.position = spawnPoint.position;
             }
