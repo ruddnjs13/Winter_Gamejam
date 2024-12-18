@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class WaveManager : MonoSingleton<WaveManager>
 {
@@ -14,6 +14,7 @@ public class WaveManager : MonoSingleton<WaveManager>
     [SerializeField] private GameObject rangedEnemyPrefab;
     [SerializeField] private GameObject bombEnemyPrefab;
     [SerializeField] private GameObject dashEnemyPrefab;
+    [SerializeField] private GameObject testObj;
     [Space(10)]
     [Header("BossPrefab")]
     [SerializeField] private GameObject bossPrefab;
@@ -30,6 +31,10 @@ public class WaveManager : MonoSingleton<WaveManager>
     [Space(10)]
     [Header("List")]
     [SerializeField] private List<Transform> trans = new List<Transform>();
+    [SerializeField] private List<Transform> niddleTrans = new List<Transform>();
+    [SerializeField] private List<Enemy> enemyLists = new List<Enemy>();
+    [SerializeField] private List<Niddle> niddleLists = new List<Niddle>();
+
 
     private int currentWave = 0;
     private int enemiesAlive = 0;
@@ -42,16 +47,22 @@ public class WaveManager : MonoSingleton<WaveManager>
 
     private void StartWave()
     {
+        ClearAll();
         currentWave++;
         Debug.Log($"{currentWave} 웨이브 시작");
 
         int numberOfEnemies = currentWave;
 
+        if (currentWave % 2 == 0)
+        {
+            SpawnSpike();
+        }
         if (currentWave % 5 == 0)
         {
             spawnPoint = bossSpawnpoint;
             waveTxt.text = $"BossWave";
             waveTxt.color = Color.red;
+
             if (currentWave == 5)
             {
                 Instantiate(bossPrefab, spawnPoint.position, Quaternion.identity);
@@ -101,9 +112,9 @@ public class WaveManager : MonoSingleton<WaveManager>
                         break;
                 }
                 spawnPoint = trans[UnityEngine.Random.Range(0, trans.Count)];
-                //Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
                 Enemy enemy = PoolManager.Instance.Pop(enemyName) as Enemy;
                 enemy.transform.position = spawnPoint.position;
+                enemyLists.Add(enemy);
             }
             enemiesAlive = numberOfEnemies;
         }
@@ -124,6 +135,27 @@ public class WaveManager : MonoSingleton<WaveManager>
                 Debug.Log("모든 웨이브가 완료되었습니다!");
             }
         }
+    }
+
+    private void SpawnSpike()
+    {
+        Niddle spike = PoolManager.Instance.Pop("Niddle") as Niddle; 
+        if (spike != null)
+        {
+            spawnPoint = niddleTrans[UnityEngine.Random.Range(0, niddleTrans.Count)];
+            spike.transform.position = spawnPoint.position;
+            niddleLists.Add(spike);
+        }
+    }
+
+    private void ClearAll()
+    {
+        foreach (IPoolable n in niddleLists)
+        {
+            PoolManager.Instance.Push(n);
+        }
+        niddleLists.Clear();
+        enemyLists.Clear();
     }
 
     private IEnumerator WaveStartCount(int waveCount)

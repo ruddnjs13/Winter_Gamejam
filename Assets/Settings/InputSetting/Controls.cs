@@ -28,10 +28,37 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ""id"": ""df70fa95-8a34-4494-b137-73ab6b9c7d37"",
             ""actions"": [
                 {
-                    ""name"": ""OnMove"",
+                    ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""8555e0c8-a0ec-4333-be0e-ebc5bcfbcd82"",
+                    ""id"": ""04b26b73-06c3-49a9-bfeb-294e65dfbba1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ReversePos"",
+                    ""type"": ""Button"",
+                    ""id"": ""3eea6f20-0460-49c5-b034-e43d3a1e71cc"",
                     ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""82fa5022-79ba-4f47-873c-3b3aa519b0b2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""d2878ccf-dfa2-437a-b62e-ce70c720eed1"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -39,37 +66,92 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
+                    ""name"": """",
+                    ""id"": ""0c26c74c-1913-4e7e-8439-22c71d8066c4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReversePos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""2D Vector"",
-                    ""id"": ""2cb59e42-4913-4f73-8531-8b01908175f3"",
+                    ""id"": ""ab2202ea-0479-478d-94d2-c18aca399fba"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""OnMove"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""up"",
+                    ""id"": ""5ad69197-9063-4f48-bef2-36f8101394e4"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""fea2965a-49da-426d-956a-508af193d642"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""left"",
-                    ""id"": ""accc58fc-c57a-40a0-bd34-f78166cffba0"",
+                    ""id"": ""72fe2869-d1f7-4ed2-9a35-7210055ff242"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""OnMove"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""f1896148-3ffa-4dc3-a02d-3bd3eea044e2"",
+                    ""id"": ""1f4ef245-a878-40fd-8207-b95a1f080c1a"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""OnMove"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e04941f4-d452-4550-ac68-fd054750c712"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ffd4c31-047d-4866-9a91-86d4adb23216"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -139,7 +221,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_OnMove = m_Player.FindAction("OnMove", throwIfNotFound: true);
+        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_ReversePos = m_Player.FindAction("ReversePos", throwIfNotFound: true);
+        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_MoveMouse = m_Player.FindAction("MoveMouse", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -206,12 +291,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_OnMove;
+    private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_ReversePos;
+    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_MoveMouse;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @OnMove => m_Wrapper.m_Player_OnMove;
+        public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @ReversePos => m_Wrapper.m_Player_ReversePos;
+        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @MoveMouse => m_Wrapper.m_Player_MoveMouse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -221,16 +312,34 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @OnMove.started += instance.OnOnMove;
-            @OnMove.performed += instance.OnOnMove;
-            @OnMove.canceled += instance.OnOnMove;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @ReversePos.started += instance.OnReversePos;
+            @ReversePos.performed += instance.OnReversePos;
+            @ReversePos.canceled += instance.OnReversePos;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @MoveMouse.started += instance.OnMoveMouse;
+            @MoveMouse.performed += instance.OnMoveMouse;
+            @MoveMouse.canceled += instance.OnMoveMouse;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @OnMove.started -= instance.OnOnMove;
-            @OnMove.performed -= instance.OnOnMove;
-            @OnMove.canceled -= instance.OnOnMove;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @ReversePos.started -= instance.OnReversePos;
+            @ReversePos.performed -= instance.OnReversePos;
+            @ReversePos.canceled -= instance.OnReversePos;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @MoveMouse.started -= instance.OnMoveMouse;
+            @MoveMouse.performed -= instance.OnMoveMouse;
+            @MoveMouse.canceled -= instance.OnMoveMouse;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -295,6 +404,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnOnMove(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        void OnReversePos(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnMoveMouse(InputAction.CallbackContext context);
     }
 }

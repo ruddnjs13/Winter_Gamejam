@@ -17,10 +17,18 @@ public class PlayerRenderer : MonoBehaviour
         _animator.SetFloat(_moveXHash, moveX);
     }
 
-    public void Flip(float moveX)
+    public void Flip(float move)
     {
-        if(Mathf.Abs(moveX) <= 0) return;
-        transform.parent.localScale = new Vector3(moveX* transform.parent.localScale.x
-            , transform.parent.localScale.y, transform.parent.localScale.z);
+        if(Mathf.Abs(move) <= 0) return;
+        bool isFacingRight = move > 0;
+
+        if (isFacingRight)
+        {
+            transform.parent.localScale = new Vector3(1,1,1);
+        }
+        else
+        {
+            transform.parent.localScale = new Vector3(-1,1,1);
+        }
     }
 }
