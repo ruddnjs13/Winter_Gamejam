@@ -27,6 +27,11 @@ public class WeaponArm : MonoBehaviour
         _reloadUI = transform.parent.GetComponentInChildren<ReloadUI>();
     }
 
+    private void Start()
+    {
+        _reloadUI.gameObject.SetActive(false);
+    }
+
     private void OnEnable()
     {
         _inputReader.AttackEvent += HandleAttackEvent;
@@ -40,6 +45,7 @@ public class WeaponArm : MonoBehaviour
     private void HandleAttackEvent()
     {
         if(!_canAttack) return;
+        _reloadUI.gameObject.SetActive(true);
         StartCoroutine(ReloadCoroutine());
         shootEvent?.Invoke();
         Bullet bullet =  PoolManager.Instance.Pop("Bullet") as Bullet;
@@ -50,12 +56,20 @@ public class WeaponArm : MonoBehaviour
     private  IEnumerator ReloadCoroutine()
     {
         _canAttack = false;
-        yield return new WaitForSeconds(_attackCooldown);
+        float currentValue = 0.1f;
+        while (currentValue <= 1.6f)
+        {
+            currentValue += Time.deltaTime;
+            _reloadUI.SetValue(currentValue);
+            yield return null;
+        }
+        _reloadUI.gameObject.SetActive(false);
         _canAttack = true;
     }
 
     private void Update()
     {
+        _reloadUI.Flip(transform.parent.localScale.x >= 0);
         RotateGun();
     }
 
