@@ -46,7 +46,7 @@ public class SmallPox : Boss
 
     private void Start(){
         TargetingPlayer = GetPlayerPosition().position - transform.position;
-        TransitionState(BossStateType.Attack2);
+        TransitionState(BossStateType.Idle);
     }
     
     public void RandomAttack(){
@@ -97,6 +97,7 @@ public class SmallPox : Boss
 
             hp--;
             _spriteRenderer.sprite = ShieldSprite[hp];
+            Debug.Log(hp);
         }
     }
 
