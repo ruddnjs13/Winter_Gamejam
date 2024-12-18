@@ -54,5 +54,6 @@ public enum BossStateType
     Attack1,
     Attack2,
     Attack3,
-    Attack4
+    Attack4,
+    Groggy
 }

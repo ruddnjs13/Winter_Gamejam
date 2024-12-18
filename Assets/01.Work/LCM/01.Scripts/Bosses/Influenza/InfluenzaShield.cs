@@ -13,6 +13,8 @@ public class InfluenzaShield : MonoBehaviour
         if (other.CompareTag("Weapon"))
         {
             _influenza.RemoveList(gameObject);
+            if(_influenza.shields.Count == 0)
+                _influenza.TransitionState(BossStateType.Groggy);
             Destroy(gameObject);
         }
     }
