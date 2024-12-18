@@ -49,5 +49,9 @@ public class BossState{
 
 public enum BossStateType
 {
-    Idle
+    Idle,
+    Attack1,
+    Attack2,
+    Attack3,
+    Attack4
 }

@@ -3,7 +3,7 @@ using System;
 
 public class Influenza : Boss
 {
-    [field: SerializeField] public PestData PestData { get; private set; }
+    [field: SerializeField] public InfluenzaData InfluenzaData { get; private set; }
     protected override void Awake(){
         base.Awake();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
