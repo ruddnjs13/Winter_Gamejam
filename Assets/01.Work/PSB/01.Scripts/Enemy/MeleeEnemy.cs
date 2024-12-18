@@ -6,6 +6,7 @@ public class MeleeEnemy : Enemy, IPoolable
 
     public GameObject objectPrefab => gameObject;
 
+
     private void Update()
     {
         if (player != null)

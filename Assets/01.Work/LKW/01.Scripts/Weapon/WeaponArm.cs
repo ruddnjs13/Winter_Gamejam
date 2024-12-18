@@ -3,12 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponArm : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader;
     [SerializeField] private Transform _firePos;
     private SpriteRenderer _spriteRenderer;
+
+    public UnityEvent shootEvent;
+    
+    public float currentAngle {get; private set;}
     
 
     private float _attackCooldown = 4f;
@@ -16,7 +21,7 @@ public class WeaponArm : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer = transform.Find("Visual").GetComponent<SpriteRenderer>();
+        _spriteRenderer = transform.Find("Gun").GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -33,9 +38,10 @@ public class WeaponArm : MonoBehaviour
     {
         if(!_canAttack) return;
         StartCoroutine(AttackCoolCoroutine());
+        shootEvent?.Invoke();
         Bullet bullet =  PoolManager.Instance.Pop("Bullet") as Bullet;
         bullet.transform.position = _firePos.position;
-        bullet.transform.rotation = transform.rotation;
+        bullet.SetVelocity((Vector3)_inputReader.MousePos - transform.position);
     }
 
     private  IEnumerator AttackCoolCoroutine()
@@ -61,6 +67,7 @@ public class WeaponArm : MonoBehaviour
         Vector2 direction = transform.parent.InverseTransformPoint(mousePos).normalized;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        currentAngle = angle;
         transform.localRotation = Quaternion.Euler(0, 0, angle);
         FlipWeapon(angle);
     }

@@ -16,22 +16,30 @@ public class BombEnemy : Enemy, IPoolable
 
     private void Update()
     {
-        if (isMoving)
+        if (player != null)
         {
-            Vector3 direction = (targetPosition - transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
-
-            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            if (isMoving)
             {
-                isMoving = false;
+                Vector3 direction = (targetPosition - transform.position).normalized;
+                transform.position += direction * moveSpeed * Time.deltaTime;
+
+                if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+                {
+                    isMoving = false;
+                }
             }
         }
+        
     }
 
     private void CheckPlayerPosition()
     {
-        targetPosition = player.position;
-        isMoving = true;
+        if (player != null)
+        {
+            targetPosition = player.position;
+            isMoving = true;
+        }
+        
     }
 
     public void ResetItem()
