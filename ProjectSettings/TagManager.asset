@@ -8,6 +8,7 @@ TagManager:
   - Boss
   - Projectile
   - Obstacle
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,11 +19,11 @@ TagManager:
   - 
   - Player
   - Enemy
-  - Gound
+  - Ground
   - Boss
   - Projectile
   - Obstacle
-  - 
+  - BossProjectile
   - 
   - 
   - 
@@ -44,6 +45,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Projectile
+    uniqueID: 1103064129
+    locked: 0
+  - name: Boss
+    uniqueID: 3753824735
     locked: 0
   m_RenderingLayers:
   - Default

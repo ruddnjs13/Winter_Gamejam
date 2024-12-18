@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Boss : MonoBehaviour
-{
+public abstract class Boss : MonoBehaviour{
+    [SerializeField] private Vector2 _playerCheckerBoxSize;
+    [SerializeField] private LayerMask _whatIsPlayer;
+
     public Rigidbody2D RbCompo { get; private set; }
     public BossAnimationPlay AnimationPlay { get; private set; }
     
@@ -29,5 +32,15 @@ public abstract class Boss : MonoBehaviour
     private void FixedUpdate()
     {
         StateEnum[CurrentState].FixedUpdateState();
+    }
+
+    public Transform GetPlayerPosition(){
+        Collider2D playerCollider = Physics2D.OverlapBox(transform.position, _playerCheckerBoxSize, 0f, _whatIsPlayer);
+        return playerCollider.transform;
+    }
+
+    protected virtual void OnDrawGizmos(){
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, _playerCheckerBoxSize);
     }
 }

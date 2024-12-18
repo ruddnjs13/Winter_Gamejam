@@ -21,8 +21,27 @@ public class Pest : Boss
             }
         }
     }
-
+    
     private void Start(){
         TransitionState(BossStateType.Idle);
+    }
+    
+    public void RandomAttack(){
+        int rand  = UnityEngine.Random.Range(1, 5);
+        switch (rand)
+        {
+            case 1:
+                TransitionState(BossStateType.Attack1);
+                break;
+            case 2:
+                TransitionState(BossStateType.Attack2);
+                break;
+            case 3:
+                TransitionState(BossStateType.Attack3);
+                break;
+            case 4:
+                TransitionState(BossStateType.Attack4);
+                break;
+        }
     }
 }

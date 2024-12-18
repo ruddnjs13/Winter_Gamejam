@@ -25,4 +25,20 @@ public class SmallPox : Boss
     private void Start(){
         TransitionState(BossStateType.Idle);
     }
+    
+    public void RandomAttack(){
+        int rand  = UnityEngine.Random.Range(1, 4);
+        switch (rand)
+        {
+            case 1:
+                TransitionState(BossStateType.Attack1);
+                break;
+            case 2:
+                TransitionState(BossStateType.Attack2);
+                break;
+            case 3:
+                TransitionState(BossStateType.Attack3);
+                break;
+        }
+    }
 }
