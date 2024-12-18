@@ -1,10 +1,17 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+using UnityEngine.Events;
 
-public class Pest : Boss
-{
-    [field: SerializeField] public PestData PestData { get; private set; }
-    [field: SerializeField] public GameObject RotationObject { get; private set; }
+public class Pest : Boss{
+    [field: SerializeField] public PestData PestData{ get; private set; }
+    [field: SerializeField] public GameObject RotationObject{ get; private set; }
+    
+    public List<GameObject> shields;
+
+    public UnityEvent OnDead;
+    public bool IsCanDie{ get; set; } = false;
+
     protected override void Awake(){
         base.Awake();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
@@ -22,13 +29,13 @@ public class Pest : Boss
             }
         }
     }
-    
+
     private void Start(){
         TransitionState(BossStateType.Attack1);
     }
-    
+
     public void RandomAttack(){
-        int rand  = UnityEngine.Random.Range(1, 5);
+        int rand = UnityEngine.Random.Range(1, 5);
         switch (rand)
         {
             case 1:
@@ -44,5 +51,18 @@ public class Pest : Boss
                 TransitionState(BossStateType.Attack4);
                 break;
         }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other){
+        if (other.gameObject.CompareTag("Weapon") && IsCanDie)
+        {
+            OnDead?.Invoke();
+            Destroy(gameObject);
+        }
+    }
+    
+    public void RemoveList(GameObject shield)
+    {
+        shields.Remove(shield);
     }
 }

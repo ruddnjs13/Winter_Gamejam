@@ -9,10 +9,11 @@ public class Influenza : Boss
     [field: SerializeField] public LayerMask _whatIsGround { get; private set; }
     public Vector3 DefaultTransform {get; private set;}
 
-    [SerializeField] private List<GameObject> _shields;
+    public List<GameObject> shields;
 
     public UnityEvent OnDead;
-    
+
+    public bool IsCanDie{ get; set; } = false;
     
     protected override void Awake(){
         base.Awake();
@@ -55,7 +56,7 @@ public class Influenza : Boss
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        if (other.gameObject.CompareTag("Weapon") && _shields.Count == 0)
+        if (other.gameObject.CompareTag("Weapon") && IsCanDie)
         {
             OnDead?.Invoke();
             Destroy(gameObject);
@@ -64,7 +65,7 @@ public class Influenza : Boss
 
     public void RemoveList(GameObject shield)
     {
-        _shields.Remove(shield);
+        shields.Remove(shield);
     }
 
     protected override void OnDrawGizmos(){
