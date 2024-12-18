@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -11,7 +12,6 @@ public class DashEnemy : Enemy, IPoolable
     private bool isDashing = false;
 
     public string PoolName => "DashEnemy";
-
     public GameObject objectPrefab => gameObject;
 
     private void Update()
@@ -34,6 +34,15 @@ public class DashEnemy : Enemy, IPoolable
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Weapon")
+        {
+            PoolManager.Instance.Push(this);
+            WaveManager.Instance.EnemyDefeated();
+        }
+    }
+
     private void MoveTowardsPlayer()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
@@ -43,14 +52,12 @@ public class DashEnemy : Enemy, IPoolable
     {
         isDashing = true;
         Vector2 dashDirection = (player.position - transform.position).normalized;
-        float dashTime = 0f;
+        Vector2 targetPosition = (Vector2)transform.position + dashDirection * dashDistance;
 
-        while (dashTime < dashDuration)
-        {
-            transform.position += (Vector3)(dashDirection * (dashDistance / dashDuration) * Time.deltaTime);
-            dashTime += Time.deltaTime;
-            yield return null;
-        }
+        transform.DOMove(targetPosition, dashDuration)
+            .SetEase(Ease.OutCubic);
+
+        yield return new WaitForSeconds(dashDuration);
 
         lastDashTime = Time.time;
         isDashing = false;
