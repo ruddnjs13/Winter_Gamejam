@@ -1,15 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class DashEnemy : MonoBehaviour, IPoolable
+public class DashEnemy : Enemy, IPoolable
 {
-    public float moveSpeed = 3f;
-    public float attackRange = 1f;
     public float dashDistance = 5f;
     public float dashCooldown = 3f;
     public float dashDuration = 0.2f;
 
-    private Transform player;
     private float lastDashTime = 0f;
     private bool isDashing = false;
 
@@ -17,27 +14,8 @@ public class DashEnemy : MonoBehaviour, IPoolable
 
     public GameObject objectPrefab => gameObject;
 
-    private void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(collision.gameObject);
-        }
-    }
-
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Destroy(gameObject);
-            WaveManager.Instance.EnemyDefeated();
-        }
-
         if (player != null)
         {
             if (!isDashing)
