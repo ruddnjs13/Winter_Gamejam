@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class WeaponArm : MonoBehaviour
 {
@@ -49,8 +50,16 @@ public class WeaponArm : MonoBehaviour
         StartCoroutine(ReloadCoroutine());
         shootEvent?.Invoke();
         Bullet bullet =  PoolManager.Instance.Pop("Bullet") as Bullet;
+
+        Vector3 dir = ((Vector3)_inputReader.MousePos - transform.position).normalized;
+
+
+
+
+        bullet.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg));
+        
         bullet.transform.position = _firePos.position;
-        bullet.SetVelocity((Vector3)_inputReader.MousePos - transform.position);
+        bullet.SetVelocity(dir*10);
     }
 
     private  IEnumerator ReloadCoroutine()
