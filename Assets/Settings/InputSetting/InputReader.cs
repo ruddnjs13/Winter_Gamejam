@@ -28,6 +28,11 @@ public class InputReader : ScriptableObject, Controls.IPlayerActions
         _controls.Disable();
     }
 
+    public void RockInput()
+    {
+        _controls.Disable();
+    }
+
    
     public void OnMove(InputAction.CallbackContext context)
     {
