@@ -18,6 +18,8 @@ public class Pest : Boss{
 
 
     public UnityEvent OnDead;
+
+    [SerializeField] private ParticleSystem _particle;
     public bool IsCanDie{ get; set; } = false;
 
     protected override void Awake(){
@@ -40,12 +42,12 @@ public class Pest : Boss{
     }
 
     private void Start(){
-        TransitionState(BossStateType.Idle);
+        TransitionState(BossStateType.Attack2);
 
     }
 
     public void RandomAttack(){
-        int rand = UnityEngine.Random.Range(1, 2);
+        int rand = UnityEngine.Random.Range(1, 4);
         switch (rand)
         {
             case 1:
@@ -66,6 +68,7 @@ public class Pest : Boss{
     private void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.CompareTag("Weapon") && IsCanDie)
         {
+            Instantiate(_particle, transform.position, Quaternion.identity);
             OnDead?.Invoke();
             Destroy(gameObject);
         }
