@@ -14,28 +14,19 @@ public class DashEnemy : Enemy, IPoolable
     public string PoolName => "DashEnemy";
     public GameObject objectPrefab => gameObject;
 
-    private void Start()
-    {
-        isDashing = true;
-        isDashing = false;
-    }
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 1f, LayerMask.GetMask("Ground"));
-
-        if (hit.collider != null)
-        {
-            DOTween.KillAll();
-        }
-
         if (player != null)
         {
             if (!isDashing)
             {
                 MoveTowardsPlayer();
 
-                if (Time.time - lastDashTime > dashCooldown)
+                Vector2 dashDirection = (player.position - transform.position).normalized;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, dashDirection, dashDistance, LayerMask.GetMask("Ground"));
+
+                if (hit.collider == null && Time.time - lastDashTime > dashCooldown)
                 {
                     StartCoroutine(Dash());
                 }

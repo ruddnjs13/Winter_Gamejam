@@ -30,13 +30,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitMove()
-    {
-        moveSpeed = 0f;
-        yield return new WaitForSeconds(2.5f);
-        moveSpeed = 6f;
-    }
-
     /*private IEnumerator ShaderCoroutine()
     {
         float fadeValue = 1f;

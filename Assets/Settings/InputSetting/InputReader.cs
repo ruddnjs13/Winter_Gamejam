@@ -28,9 +28,16 @@ public class InputReader : ScriptableObject, Controls.IPlayerActions
         _controls.Disable();
     }
 
-    public void RockInput()
+    public void LockInput(bool value)
     {
-        _controls.Disable();
+        if (value)
+        {
+            _controls.Enable();
+        }
+        else
+        {
+            _controls.Disable();
+        }
     }
 
    
