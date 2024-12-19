@@ -12,6 +12,11 @@ public class Pest : Boss{
     [field: SerializeField] public GameObject RotationObject{ get; private set; }
     [field: SerializeField] public GameObject LaserCollider{ get; private set; }
     
+    [field: SerializeField] public LayerMask _whatIsGround { get; private set; }
+
+    
+    public WallAttack WallAttackCompo {get; private set;}
+    
     public List<GameObject> shields;
     
     public List<Transform> lines;
@@ -25,6 +30,7 @@ public class Pest : Boss{
     protected override void Awake(){
         base.Awake();
         LineRenderer = GetComponent<LineRenderer>();
+        WallAttackCompo = GameObject.Find("WallAttack").GetComponent<WallAttack>();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
         {
             try
@@ -42,7 +48,7 @@ public class Pest : Boss{
     }
 
     private void Start(){
-        TransitionState(BossStateType.Attack2);
+        TransitionState(BossStateType.Attack3);
 
     }
 
