@@ -21,7 +21,7 @@ public class Influenza : Boss
 
     public bool IsCanDie{ get; set; } = false;
 
-    private BossStateType _currentState;
+    private BossStateType _currentState = BossStateType.Attack1;
 
     protected override void Awake(){
         base.Awake();
