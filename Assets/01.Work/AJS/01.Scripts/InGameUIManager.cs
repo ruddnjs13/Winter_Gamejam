@@ -8,6 +8,7 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] private GameObject clearPanel;
     [SerializeField] private GameObject deadPanel;
     [SerializeField] private string sceneName;
+    [SerializeField] private string retryScene;
     private bool isStopped = false;
 
     private void Start()
@@ -59,7 +60,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void RetryBtn()
     {
-        SceneManager.LoadScene("PSB_Scene");
+        SceneManager.LoadScene(retryScene);
     }
 
     public void DeadPanel()

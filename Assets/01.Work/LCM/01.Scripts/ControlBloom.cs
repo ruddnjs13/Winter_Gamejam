@@ -7,7 +7,7 @@ public class ControlBloom : MonoBehaviour
 {
     private Volume volume;
     private Bloom bloom;
-    [SerializeField] private int _count;
+    private float _colorValue = 1f;
     [SerializeField] private float _waitTime;
     private void Awake()
     {
@@ -18,14 +18,16 @@ public class ControlBloom : MonoBehaviour
     }
 
     private IEnumerator BloomChange(){
-        for (int i = 0; i < _count; i++)
+        for (int i = 0; i < 100; i++)
         {
-            bloom.intensity.value += 0.01f;
+            _colorValue -= 0.01f;
+            bloom.tint.value = new Color(1, _colorValue, _colorValue, 1);
             yield return new WaitForSeconds(_waitTime);
         }
-        for (int i = 0; i < _count; i++)
+        for (int i = 0; i < 100; i++)
         {
-            bloom.intensity.value -= 0.01f;
+            _colorValue += 0.01f;
+            bloom.tint.value = new Color(1, _colorValue, _colorValue, 1);
             yield return new WaitForSeconds(_waitTime);
         }
         StartCoroutine(BloomChange());
