@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class Pest_Attack2State : BossState
 {
@@ -54,17 +55,13 @@ public class Pest_Attack2State : BossState
     {
         for (int j = 0; j <= 10; j+=2)
         {
-            _pest.LineRenderer.SetPosition(j,Vector3.zero);
+            _pest.LineRenderer.SetPosition(j,_pest.transform.position);
             _pest.LineRenderer.SetPosition(j +1,_pest.lines[j/2].position);
         }
     }
 
     private void InitLaser()
     {
-        for (int i = 0; i < 11; i += 2)
-        {
-            LaserPos[i] = Vector3.zero;
-        }
 
         for (int i = 1; i <= 11; i += 2)
         {
