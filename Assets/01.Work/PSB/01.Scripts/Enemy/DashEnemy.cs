@@ -5,7 +5,7 @@ using UnityEngine;
 public class DashEnemy : Enemy, IPoolable
 {
     public float dashDistance = 3f;
-    public float dashCooldown = 5f;
+    public float dashCooldown = 3f;
     public float dashDuration = 6f;
 
     private float lastDashTime = 0f;
@@ -61,7 +61,7 @@ public class DashEnemy : Enemy, IPoolable
         transform.DOMove(targetPosition, 1f)
             .SetEase(Ease.OutCubic);
 
-        yield return new WaitForSeconds(dashCooldown);
+        yield return new WaitForSeconds(0.1f);
 
         lastDashTime = Time.time;
         isDashing = false;

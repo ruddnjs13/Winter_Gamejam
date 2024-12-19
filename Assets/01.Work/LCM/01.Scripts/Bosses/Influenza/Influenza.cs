@@ -44,7 +44,7 @@ public class Influenza : Boss
     }
 
     private void Start(){
-        TransitionState(BossStateType.Idle);
+        TransitionState(BossStateType.Attack2);
     }
 
     public void RandomAttack(){
