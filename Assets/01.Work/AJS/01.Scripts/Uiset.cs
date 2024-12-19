@@ -15,6 +15,7 @@ public class Uiset : MonoBehaviour
     private readonly float bottomYPosition = -55f; // Exit 버튼 Y 좌표
 
     private bool isPanelActive = false; // 패널이 활성화된 상태를 확인
+    private bool isInputLocked = false; // 입력 잠금 플래그
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class Uiset : MonoBehaviour
 
     void Update()
     {
-        if (image == null) return;
+        if (isPanelActive || image == null || isInputLocked) return;  // 입력 잠금 또는 패널 활성화 중이면 입력 차단
 
         // 위쪽 이동: 190 → -55
         if (Input.GetKeyDown(KeyCode.UpArrow) && currentYPosition == topYPosition)
@@ -71,6 +72,8 @@ public class Uiset : MonoBehaviour
 
     void ExecuteSelectedButton()
     {
+        isInputLocked = true; // 입력 잠금 활성화
+
         // 현재 Y 좌표에 따라 버튼 실행
         if (currentYPosition == topYPosition)
         {
@@ -98,6 +101,12 @@ public class Uiset : MonoBehaviour
         else
         {
             image.SetActive(true); // 패널이 비활성화되면 이미지 활성화
+
+            // 비활성화 후 입력 상태 초기화
+            currentYPosition = 190f; // 초기 위치로 복구
+            MoveImage(currentYPosition);
+
+            isInputLocked = false; // 입력 잠금 해제
         }
     }
 }
