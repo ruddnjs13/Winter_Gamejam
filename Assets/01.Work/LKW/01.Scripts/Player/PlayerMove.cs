@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private GameObject _reversePosUI;
     private Player _player;
 
     [SerializeField] private float _coolTime = 5f;
@@ -45,9 +46,11 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator CoolTimeCoroutine()
     {
+        _reversePosUI.SetActive(false);
         _isCool = true;
         yield return new WaitForSeconds(_coolTime);
         _isCool = false;
+        _reversePosUI.SetActive(true);
         
     }
 }
