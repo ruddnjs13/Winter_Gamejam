@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GIGANISM
+  m_text: GIGANTISM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c3532fa3593ad5f4ba5be908f4bcfbca, type: 2}
   m_sharedMaterial: {fileID: -4860310595906895072, guid: c3532fa3593ad5f4ba5be908f4bcfbca, type: 2}

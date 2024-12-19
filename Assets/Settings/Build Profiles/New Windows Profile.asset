@@ -34,8 +34,8 @@ MonoBehaviour:
     - line: '|   targetDevice: 2'
     - line: '|   useOnDemandResources: 0'
     - line: '|   accelerometerFrequency: 60'
-    - line: '|   companyName: DefaultCompany'
-    - line: '|   productName: Winter_Gamejam'
+    - line: '|   companyName: nARtoCoMPANY'
+    - line: '|   productName: Gigantism'
     - line: '|   defaultCursor: {fileID: 2800000, guid: d1b838bfd6d10bb4888579723768942d,
         type: 3}'
     - line: '|   cursorHotspot: {x: 16, y: 16}'
