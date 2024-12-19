@@ -36,5 +36,6 @@ public class MeleeEnemy : Enemy, IPoolable
 
     public void ResetItem()
     {
+        moveSpeed = 6f;
     }
 }
