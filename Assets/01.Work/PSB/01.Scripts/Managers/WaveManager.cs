@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveManager : MonoSingleton<WaveManager>
 {
@@ -15,6 +16,7 @@ public class WaveManager : MonoSingleton<WaveManager>
     [SerializeField] private TextMeshProUGUI waveTxt;
     [SerializeField] private TextMeshProUGUI waveCountTxt;
     private int currentWave = 0;
+    public UnityEvent OnStartBossWave;
     
 
     private void Start()
@@ -85,14 +87,17 @@ public class WaveManager : MonoSingleton<WaveManager>
             if (currentWave == 5)
             {
                 enemySpawnManager.BossSpawnFiveMethod();
+                OnStartBossWave?.Invoke();
             }
             else if (currentWave == 10)
             {
                 enemySpawnManager.BossSpawnTenMethod();
+                OnStartBossWave?.Invoke();
             }
             else if (currentWave == 15)
             {
                 enemySpawnManager.BossSpawnFifteenMethod();
+                OnStartBossWave?.Invoke();
             }
 
         }
@@ -134,7 +139,7 @@ public class WaveManager : MonoSingleton<WaveManager>
 
         for (int i = waveCount; i > 0; i--)
         {
-            waveCountTxt.text = $"남은시간 : {i}";
+            waveCountTxt.text = $"남은 시간 : {i}";
             yield return new WaitForSeconds(1f);
         }
 
@@ -144,9 +149,14 @@ public class WaveManager : MonoSingleton<WaveManager>
             waveCountTxt.text = "보스가 등장합니다..";
             yield return new WaitForSeconds(1f);
         }
+        else if (currentWave == 5 || currentWave == 10)
+        {
+            waveCountTxt.text = "적들이 더욱 증가했습니다";
+            yield return new WaitForSeconds(1f);
+        }
         else
         {
-            waveCountTxt.text = "적들이 몰려옵니다!";
+            waveCountTxt.text = "적들이 몰려옵니다.";
             yield return new WaitForSeconds(1f);
         }
 
