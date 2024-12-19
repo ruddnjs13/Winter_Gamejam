@@ -18,6 +18,8 @@ public class Pest : Boss{
 
 
     public UnityEvent OnDead;
+
+    [SerializeField] private ParticleSystem _particle;
     public bool IsCanDie{ get; set; } = false;
 
     protected override void Awake(){
@@ -66,6 +68,7 @@ public class Pest : Boss{
     private void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.CompareTag("Weapon") && IsCanDie)
         {
+            Instantiate(_particle, transform.position, Quaternion.identity);
             OnDead?.Invoke();
             Destroy(gameObject);
         }
