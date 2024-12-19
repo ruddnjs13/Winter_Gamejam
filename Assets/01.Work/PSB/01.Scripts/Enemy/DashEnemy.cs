@@ -78,7 +78,6 @@ public class DashEnemy : Enemy, IPoolable
 
     public void ResetItem()
     {
-        moveSpeed = 6f;
     }
 
 

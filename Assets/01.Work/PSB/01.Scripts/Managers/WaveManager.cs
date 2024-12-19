@@ -17,6 +17,7 @@ public class WaveManager : MonoSingleton<WaveManager>
     [SerializeField] private TextMeshProUGUI waveCountTxt;
     private int currentWave = 0;
     public UnityEvent OnStartBossWave;
+    public UnityEvent OnClear;
     
 
     private void Start()
@@ -127,7 +128,7 @@ public class WaveManager : MonoSingleton<WaveManager>
             }
             else
             {
-                Debug.Log("모든 웨이브가 완료되었습니다!");
+                OnClear?.Invoke();
             }
         }
     }
@@ -147,11 +148,6 @@ public class WaveManager : MonoSingleton<WaveManager>
         {
             waveCountTxt.color = Color.red;
             waveCountTxt.text = "보스가 등장합니다..";
-            yield return new WaitForSeconds(1f);
-        }
-        else if (currentWave == 5 || currentWave == 10)
-        {
-            waveCountTxt.text = "적들이 더욱 증가했습니다";
             yield return new WaitForSeconds(1f);
         }
         else

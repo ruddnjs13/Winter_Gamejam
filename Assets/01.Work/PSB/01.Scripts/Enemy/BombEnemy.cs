@@ -53,7 +53,6 @@ public class BombEnemy : Enemy, IPoolable
 
     public void ResetItem()
     {
-        moveSpeed = 6f;
     }
 
 

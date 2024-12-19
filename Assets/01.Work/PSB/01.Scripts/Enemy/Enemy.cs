@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float moveSpeed = 3f;
+    public float moveSpeed;
     public float attackRange = 1f;
     public Transform player;
 
@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(WaitMove());
+        moveSpeed = 6f;
     }
 
     private void Awake()
