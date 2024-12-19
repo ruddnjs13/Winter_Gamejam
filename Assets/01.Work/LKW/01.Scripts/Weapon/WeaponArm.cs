@@ -14,6 +14,8 @@ public class WeaponArm : MonoBehaviour
     
     private ReloadUI _reloadUI;
 
+    private Player _player;
+
     public UnityEvent shootEvent;
     
     public float currentAngle {get; private set;}
@@ -25,6 +27,7 @@ public class WeaponArm : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = transform.Find("Gun").GetComponent<SpriteRenderer>();
+        _player = GetComponentInParent<Player>();
         _reloadUI = transform.parent.GetComponentInChildren<ReloadUI>();
     }
 
@@ -53,12 +56,13 @@ public class WeaponArm : MonoBehaviour
 
         Vector3 dir = ((Vector3)_inputReader.MousePos - transform.position).normalized;
 
-
-
-
         bullet.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg));
         
-        bullet.transform.position = _firePos.position;
+        Vector3 bulletPos = _firePos.position;
+
+        if (_player.isReverseMove)
+            bulletPos = transform.TransformPoint(_firePos.localPosition - new Vector3(0,1,0));
+        bullet.transform.position = bulletPos;
         bullet.SetVelocity(dir*10);
     }
 
