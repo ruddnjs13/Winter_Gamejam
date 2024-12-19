@@ -174,7 +174,7 @@ MonoBehaviour:
   fadeDuration: 1
   projectilePrefab: {fileID: 5512985802197359872, guid: f85f548f10d051c4c84a83cf062a6513, type: 3}
   shootRange: 7
-  chaseRange: 15
+  chaseRange: 20
   shootInterval: 2
 --- !u!114 &-2462004534391984042
 MonoBehaviour:
