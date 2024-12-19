@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class InGameUIManager : MonoBehaviour
 {
+    [SerializeField] private InputReader inputReader;
     [SerializeField] private GameObject escPanel;
     [SerializeField] private GameObject clearPanel;
     [SerializeField] private GameObject deadPanel;
@@ -28,8 +29,10 @@ public class InGameUIManager : MonoBehaviour
                 }
                 else
                 {
+                    inputReader.LockInput(false);
                     OpenEscPanel();
                 }
+                inputReader.LockInput(true);
             }
         }
 
