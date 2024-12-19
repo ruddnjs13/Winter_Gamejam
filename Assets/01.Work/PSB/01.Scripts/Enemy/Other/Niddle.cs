@@ -9,12 +9,4 @@ public class Niddle : MonoBehaviour, IPoolable
     public void ResetItem()
     {
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(collision.gameObject);
-        }
-    }
 }

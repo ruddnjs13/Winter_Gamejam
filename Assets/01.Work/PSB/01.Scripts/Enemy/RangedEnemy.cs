@@ -66,7 +66,6 @@ public class RangedEnemy : Enemy, IPoolable
 
     public void ResetItem()
     {
-        moveSpeed = 6f;
     }
 
 }

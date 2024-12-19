@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         panel.SetActive(false);  // 세팅 패널은 시작 시 비활성화
     }
 
@@ -26,7 +27,7 @@ public class UIManager : MonoBehaviour
 
     public void StartBtn()
     {
-        SceneManager.LoadScene("SampleScene");   // Start 버튼 클릭 시 씬 전환
+        SceneManager.LoadScene("PSB_Scene");   // Start 버튼 클릭 시 씬 전환
     }
 
     public void ExitBtn()
