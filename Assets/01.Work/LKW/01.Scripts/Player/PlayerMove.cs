@@ -38,6 +38,11 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    public void Stop()
+    {
+        _rigidbody.linearVelocity = Vector2.zero;
+    }
+
     private IEnumerator CoolTimeCoroutine()
     {
         _isCool = true;

@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerRenderer : MonoBehaviour
 {
     private readonly int _moveXHash = Animator.StringToHash("MoveX");
+    private readonly int _deadHash = Animator.StringToHash("Dead");
     
     private Animator _animator;
 
@@ -17,6 +18,11 @@ public class PlayerRenderer : MonoBehaviour
         _animator.SetFloat(_moveXHash, moveX);
     }
 
+    public void SetDead()
+    {
+        _animator.SetTrigger(_deadHash);
+    }
+
     public void Flip(bool isFacingRight)
     {
         if (isFacingRight)
@@ -27,5 +33,10 @@ public class PlayerRenderer : MonoBehaviour
         {
             transform.parent.localScale = new Vector3(-1,1,1);
         }
+    }
+    
+    public void PlayerDead()
+    {
+        GetComponentInParent<Player>().DeadEvent?.Invoke();
     }
 }

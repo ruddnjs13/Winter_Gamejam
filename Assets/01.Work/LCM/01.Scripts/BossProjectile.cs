@@ -19,10 +19,10 @@ public class BossProjectile : MonoBehaviour,IPoolable
         _rigidbody2D.linearVelocity = transform.right * _moveSpeed;
     }
 
-    private void OnCollisionEnter2D(Collision2D other){
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.gameObject.CompareTag("Ground"))
         {
             PoolManager.Instance.Push(this);
-        }
-    }
+        }    }
 }
