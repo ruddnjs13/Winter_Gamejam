@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 737494bcd9ff69e4488edf961387d30f
+guid: 150e40e1be8264942a61fcb9a7786578
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3255794689422978078
-    second: Niddles_0
-  - first:
-      213: 7207804555528712095
-    second: Niddles_1
-  - first:
-      213: 1871930128055327206
-    second: Niddles_2
+      213: 2443858836951739642
+    second: WarningNiddle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,67 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Niddles_0
+      name: WarningNiddle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 2, z: 0, w: 3}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e3175bdaf711d2d0800000000000000
-      internalID: -3255794689422978078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Niddles_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 9
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9f2bbefd04470460800000000000000
-      internalID: 7207804555528712095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Niddles_2
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 0
-        width: 7
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6e9d617988e6af910800000000000000
-      internalID: 1871930128055327206
+      spriteID: afc25b10aa45ae120800000000000000
+      internalID: 2443858836951739642
       vertices: []
       indices: 
       edges: []
@@ -175,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: ae8ec4057be254649ae7b00747015b68
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Niddles_0: -3255794689422978078
-      Niddles_1: 7207804555528712095
-      Niddles_2: 1871930128055327206
+      WarningNiddle_0: 2443858836951739642
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

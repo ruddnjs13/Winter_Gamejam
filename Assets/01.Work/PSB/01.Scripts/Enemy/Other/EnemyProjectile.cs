@@ -14,14 +14,6 @@ public class EnemyProjectile : MonoBehaviour, IPoolable
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            Destroy(collision.gameObject);
-        }
-    }
-
     public void ResetItem()
     {
     }

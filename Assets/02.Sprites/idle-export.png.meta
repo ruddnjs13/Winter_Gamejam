@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 737494bcd9ff69e4488edf961387d30f
+guid: 64172d88cbb64354d9a8317c2ded98e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3255794689422978078
-    second: Niddles_0
+      213: 2123858955771819400
+    second: idle-export_0
   - first:
-      213: 7207804555528712095
-    second: Niddles_1
+      213: -6559602993303261894
+    second: idle-export_1
   - first:
-      213: 1871930128055327206
-    second: Niddles_2
+      213: -4079218532914729457
+    second: idle-export_2
+  - first:
+      213: 3144191892767933364
+    second: idle-export_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -102,71 +105,106 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Niddles_0
+      name: idle-export_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 16
-        height: 28
+        width: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e3175bdaf711d2d0800000000000000
-      internalID: -3255794689422978078
+      spriteID: 885bfc3b776797d10800000000000000
+      internalID: 2123858955771819400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Niddles_1
+      name: idle-export_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 19
         y: 0
-        width: 9
-        height: 27
+        width: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9f2bbefd04470460800000000000000
-      internalID: 7207804555528712095
+      spriteID: a3de194f4db97f4a0800000000000000
+      internalID: -6559602993303261894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Niddles_2
+      name: idle-export_2
       rect:
         serializedVersion: 2
-        x: 25
+        x: 34
         y: 0
-        width: 7
-        height: 23
+        width: 15
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e9d617988e6af910800000000000000
-      internalID: 1871930128055327206
+      spriteID: f0e6d606b54b367c0800000000000000
+      internalID: -4079218532914729457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle-export_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b3881a2ed962ab20800000000000000
+      internalID: 3144191892767933364
       vertices: []
       indices: 
       edges: []
@@ -175,8 +213,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 400a3f4f784ccf647a4ae13282f3de26
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -185,9 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Niddles_0: -3255794689422978078
-      Niddles_1: 7207804555528712095
-      Niddles_2: 1871930128055327206
+      idle-export_0: 2123858955771819400
+      idle-export_1: -6559602993303261894
+      idle-export_2: -4079218532914729457
+      idle-export_3: 3144191892767933364
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
