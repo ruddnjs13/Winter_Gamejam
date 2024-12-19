@@ -32,6 +32,8 @@ public class SmallPox : Boss
     
     [SerializeField] private ParticleSystem _particleSystem;
     
+    [field:SerializeField] public ParticleSystem _collisionParticle{ get; private set; }
+    
     private static int _bossCount = 2;
     [field: SerializeField] public int BoundCount{ get; private set; }
     protected override void Awake(){
@@ -110,7 +112,13 @@ public class SmallPox : Boss
     private void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("닿음");
+            Collider2D collider2D = Physics2D.OverlapCircle(transform.position,
+                SmallPoxData.checkGroundRadius, _whatIsGround);
+
+            Vector2 pos = collider2D.ClosestPoint(transform.position);
+            
+            InstatiateCollisionParticle(pos);
+            
             TargetingPlayer = GetPlayerPosition().position - transform.position;
             TargetingPlayer.Normalize();
             Count++;
@@ -151,6 +159,10 @@ public class SmallPox : Boss
                 _spriteRenderer.sprite = ShieldSprite[hp];
             }
         }
+    }
+    
+    public void InstatiateCollisionParticle(Vector2 pos){
+        Instantiate(_collisionParticle,pos,Quaternion.identity);
     }
 
     protected override void OnDrawGizmos(){

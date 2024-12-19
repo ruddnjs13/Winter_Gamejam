@@ -4,7 +4,7 @@ public class Influenza_ReturnState : BossState{
     private Vector2 _moveDir;
     private Vector2 _nowPos;
     private float epsilon = 0.03f;
-    public Influenza_ReturnState(Influenza smallPox) : base(smallPox){
+    public Influenza_ReturnState(Influenza influenza) : base(influenza){
     }
 
     protected override void EnterState(){
