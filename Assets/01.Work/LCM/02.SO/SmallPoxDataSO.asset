@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dec5cfb0e8588d49a4f18f65b0e5098, type: 3}
   m_Name: SmallPoxDataSO
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 7
   checkGroundRadius: 1.71
   returnSpeed: 5
