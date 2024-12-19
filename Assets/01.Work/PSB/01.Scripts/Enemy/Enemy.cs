@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         //sprite = GetComponent<SpriteRenderer>();
-        
+        StartCoroutine(WaitMove());
         //mat = sprite.material;
         //fadeHash = Shader.PropertyToID("_Fade");
         //mat.SetFloat(fadeHash, 1f);
@@ -35,6 +35,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private IEnumerator WaitMove()
+    {
+        moveSpeed = 0;
+        yield return new WaitForSeconds(1.8f);
+        moveSpeed = 3f;
+    }
 
     /*private IEnumerator ShaderCoroutine()
     {
