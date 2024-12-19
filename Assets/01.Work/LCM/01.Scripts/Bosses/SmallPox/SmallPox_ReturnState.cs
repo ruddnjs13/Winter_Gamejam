@@ -20,7 +20,7 @@ public class SmallPox_ReturnState : BossState
 
     public override void UpdateState(){
         _nowPos = _smallPox.transform.position;
-        if (Mathf.Abs(_nowPos.x) < epsilon || Mathf.Abs(_nowPos.y) < epsilon)
+        if (Mathf.Abs(_nowPos.x) < epsilon && Mathf.Abs(_nowPos.y) < epsilon)
         {
             _smallPox.TransitionState(BossStateType.Idle);
         }
