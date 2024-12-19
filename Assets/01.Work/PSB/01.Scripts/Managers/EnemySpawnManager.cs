@@ -100,7 +100,7 @@ public class EnemySpawnManager : MonoBehaviour
         Enemy enemy = PoolManager.Instance.Pop(enemyName) as Enemy;
         enemy.transform.position = spawnedPoint + randomOffset;
         enemy.transform.localScale = new Vector2(0, 0);
-        enemy.transform.DOScale(1, 0.3f);
+        enemy.transform.DOScale(Vector2.one, 0.3f);
         enemyLists.Add(enemy);
     }
 
