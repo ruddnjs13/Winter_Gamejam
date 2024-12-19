@@ -62,10 +62,6 @@ public class WaveManager : MonoSingleton<WaveManager>
                 case 8:
                     niddleManager.SpawnRightSpike();
                     break;
-                case 10:
-                    niddleManager.SpawnUnderSpike();
-                    niddleManager.SpawnUpSpike();
-                    break;
                 case 12:
                     niddleManager.SpawnLeftSpike();
                     niddleManager.SpawnRightSpike();
@@ -104,16 +100,48 @@ public class WaveManager : MonoSingleton<WaveManager>
         }
         else
         {
-            if (currentWave == 1)
+            switch (currentWave)
             {
-                StartCoroutine(SpawnCoroutine(currentWave));
+                case 1:
+                    StartCoroutine(SpawnCoroutine(1));
+                    break;
+                case 2:
+                    StartCoroutine(SpawnCoroutine(1));
+                    break;
+                case 3: 
+                    StartCoroutine(SpawnCoroutine(2));
+                    break;
+                case 4:
+                    StartCoroutine(SpawnCoroutine(2));
+                    break;
+                case 6:
+                    StartCoroutine(SpawnCoroutine(4));
+                    break;
+                case 7:
+                    StartCoroutine(SpawnCoroutine(4));
+                    break;
+                case 8:
+                    StartCoroutine(SpawnCoroutine(4));
+                    break;
+                case 9:
+                    StartCoroutine(SpawnCoroutine(4));
+                    break;
+                case 11:
+                    StartCoroutine(SpawnCoroutine(6));
+                    break;
+                case 12:
+                    StartCoroutine(SpawnCoroutine(7));
+                    break;
+                case 13:
+                    StartCoroutine(SpawnCoroutine(9));
+                    break;
+                case 14:
+                    StartCoroutine(SpawnCoroutine(9));
+                    break;
             }
-            else
-            {
-                StartCoroutine(SpawnCoroutine(currentWave - 1));
-            }
-            
         }
+        
+
     }
 
     public void EnemyDefeated()
