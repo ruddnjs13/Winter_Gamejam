@@ -18,7 +18,6 @@ public class Influenza : Boss
     public bool IsCanDie{ get; set; } = false;
 
     private BossStateType _currentState;
-    
     protected override void Awake(){
         base.Awake();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
@@ -85,7 +84,7 @@ public class Influenza : Boss
         {
             Instantiate(_particle,transform.position,Quaternion.identity);
             OnDead?.Invoke();
-            WaveManager.Instance.EnemyDefeated();
+            //WaveManager.Instance.EnemyDefeated();
             Destroy(gameObject);
         }
     }

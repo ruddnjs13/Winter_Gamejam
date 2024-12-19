@@ -31,6 +31,8 @@ public class SmallPox : Boss
     private float _maxTime = 1f;
     
     [SerializeField] private ParticleSystem _particleSystem;
+    
+    private static int _bossCount = 2;
     [field: SerializeField] public int BoundCount{ get; private set; }
     protected override void Awake(){
         base.Awake();
@@ -62,6 +64,8 @@ public class SmallPox : Boss
         {
             _isCanHit = true;
         }
+        
+        Debug.Log(_bossCount);
     }
 
     public void RandomAttack(){
@@ -101,6 +105,7 @@ public class SmallPox : Boss
                 break;
         }
     }
+    
 
     private void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.CompareTag("Ground"))
@@ -122,8 +127,13 @@ public class SmallPox : Boss
             if (IsCanDie)
             {
                 Instantiate(_particleSystem, transform.position, Quaternion.identity);
-                WaveManager.Instance.EnemyDefeated();
                 OnDeath?.Invoke();
+                _bossCount--;
+                if (_bossCount == 0)
+                {
+                    Debug.Log("다음 스테이지");
+                    //WaveManager.Instance.EnemyDefeated();
+                }
                 Destroy(gameObject);
                 return;
             }
