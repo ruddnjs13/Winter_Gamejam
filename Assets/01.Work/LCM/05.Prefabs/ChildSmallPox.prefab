@@ -100,7 +100,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _particleSystem: {fileID: 198856239026640498, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
-  <_collisionParticle>k__BackingField: {fileID: 8771972552311404798, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  <_collisionParticle>k__BackingField: {fileID: 2708598583397607910, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
   <BoundCount>k__BackingField: 2
 --- !u!50 &3033785438456095169
 Rigidbody2D:

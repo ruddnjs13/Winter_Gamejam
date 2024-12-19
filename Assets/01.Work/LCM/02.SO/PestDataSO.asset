@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f71a9d231399ec488c436f772974fec, type: 3}
   m_Name: PestDataSO
   m_EditorClassIdentifier: 
-  Attack1Speed: 0.1
-  Attack1Count: 100
+  Attack1Speed: 0.15
+  Attack1Count: 60
   rotationSpeed: 340
+  dashSpeed: 7
