@@ -585,7 +585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &500187845
 Transform:
   m_ObjectHideFlags: 0
@@ -623,6 +623,7 @@ MonoBehaviour:
     m_Bits: 128
   <PestData>k__BackingField: {fileID: 11400000, guid: 910e06e276259954e83a74f130f9bcb8, type: 2}
   <RotationObject>k__BackingField: {fileID: 213816834}
+  <LaserCollider>k__BackingField: {fileID: 0}
   shields:
   - {fileID: 982131660}
   - {fileID: 1231882801}
@@ -632,9 +633,11 @@ MonoBehaviour:
   - {fileID: 1344942648}
   - {fileID: 1828980699}
   - {fileID: 561585030}
+  lines: []
   OnDead:
     m_PersistentCalls:
       m_Calls: []
+  _particle: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!50 &500187848
 Rigidbody2D:
   serializedVersion: 5

@@ -45,7 +45,34 @@ public class WaveManager : MonoSingleton<WaveManager>
 
         if (currentWave % 2 == 0)
         {
-            niddleManager.SpawnUnderSpike();
+            switch (currentWave)
+            {
+                case 2:
+                    niddleManager.SpawnUnderSpike();
+                    break;
+                case 4:
+                    niddleManager.SpawnUpSpike();
+                    break;
+                case 6:
+                    niddleManager.SpawnLeftSpike();
+                    break;
+                case 8:
+                    niddleManager.SpawnRightSpike();
+                    break;
+                case 10:
+                    niddleManager.SpawnUnderSpike();
+                    niddleManager.SpawnUpSpike();
+                    break;
+                case 12:
+                    niddleManager.SpawnLeftSpike();
+                    niddleManager.SpawnRightSpike();
+                    break;
+                case 14:
+                    niddleManager.SpawnUnderSpike();
+                    niddleManager.SpawnRightSpike();
+                    break;
+            }
+
         }
         if (currentWave % 5 == 0)
         {
@@ -71,7 +98,15 @@ public class WaveManager : MonoSingleton<WaveManager>
         }
         else
         {
-            StartCoroutine(SpawnCoroutine(currentWave));
+            if (currentWave == 1)
+            {
+                StartCoroutine(SpawnCoroutine(currentWave));
+            }
+            else
+            {
+                StartCoroutine(SpawnCoroutine(currentWave - 1));
+            }
+            
         }
     }
 
@@ -94,6 +129,7 @@ public class WaveManager : MonoSingleton<WaveManager>
 
     private IEnumerator WaveStartCount(int waveCount)
     {
+        waveCountTxt.color = Color.black;
         waveCountTxt.gameObject.SetActive(true);
 
         for (int i = waveCount; i > 0; i--)
@@ -102,8 +138,17 @@ public class WaveManager : MonoSingleton<WaveManager>
             yield return new WaitForSeconds(1f);
         }
 
-        waveCountTxt.text = "적들이 몰려옵니다!";
-        yield return new WaitForSeconds(1f);
+        if (currentWave == 4 || currentWave == 9 || currentWave == 14)
+        {
+            waveCountTxt.color = Color.red;
+            waveCountTxt.text = "보스가 등장합니다..";
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            waveCountTxt.text = "적들이 몰려옵니다!";
+            yield return new WaitForSeconds(1f);
+        }
 
         waveCountTxt.gameObject.SetActive(false);
         StartWave();
