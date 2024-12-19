@@ -77,7 +77,6 @@ public class SmallPox : Boss
             case 1:
                 if (_currentState == BossStateType.Attack1)
                 {
-                    Debug.Log("다시 뽑음");
                     RandomAttack();
                     break;
                 }
@@ -88,7 +87,6 @@ public class SmallPox : Boss
             case 2:
                 if (_currentState == BossStateType.Attack2)
                 {
-                    Debug.Log("다시 뽑음");
                     RandomAttack();
                     break;
                 }
@@ -98,7 +96,6 @@ public class SmallPox : Boss
             case 3:
                 if (_currentState == BossStateType.Attack3)
                 {
-                    Debug.Log("다시 뽑음");
                     RandomAttack();
                     break;
                 }

@@ -10,15 +10,16 @@ public class Influenza_ReturnState : BossState{
     protected override void EnterState(){
         _influenza.RbCompo.linearVelocity = Vector2.zero;
         _moveDir = _influenza.DefaultTransform - _influenza.transform.position;
+        _moveDir.Normalize();
     }
 
     public override void FixedUpdateState(){
-        _influenza.RbCompo.linearVelocity = _moveDir.normalized * _influenza.InfluenzaData.returnSpeed;
+        _influenza.RbCompo.linearVelocity = _moveDir * _influenza.InfluenzaData.returnSpeed;
     }
 
     public override void UpdateState(){
         _nowPos = _influenza.transform.position;
-        if (Mathf.Abs(_nowPos.x) < epsilon && Mathf.Abs(_nowPos.y) < epsilon)
+        if (Mathf.Abs(_nowPos.x) < epsilon || Mathf.Abs(_nowPos.y) < epsilon)
         {
             _influenza.TransitionState(BossStateType.Idle);
         }
