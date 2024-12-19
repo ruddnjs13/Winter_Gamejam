@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class DashEnemy : Enemy, IPoolable
 {
-    public float dashDistance = 5f;
-    public float dashCooldown = 3f;
-    public float dashDuration = 0.2f;
+    public float dashDistance = 3f;
+    public float dashCooldown = 5f;
+    public float dashDuration = 6f;
 
     private float lastDashTime = 0f;
-    private bool isDashing = false;
+    private bool isDashing;
 
     public string PoolName => "DashEnemy";
     public GameObject objectPrefab => gameObject;
 
+    private void Start()
+    {
+        isDashing = true;
+        isDashing = false;
+    }
+
     private void Update()
     {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 1f, LayerMask.GetMask("Ground"));
+
+        if (hit.collider != null)
+        {
+            DOTween.KillAll();
+        }
+
         if (player != null)
         {
             if (!isDashing)
@@ -54,10 +67,10 @@ public class DashEnemy : Enemy, IPoolable
         Vector2 dashDirection = (player.position - transform.position).normalized;
         Vector2 targetPosition = (Vector2)transform.position + dashDirection * dashDistance;
 
-        transform.DOMove(targetPosition, dashDuration)
+        transform.DOMove(targetPosition, 3f)
             .SetEase(Ease.OutCubic);
 
-        yield return new WaitForSeconds(dashDuration);
+        yield return new WaitForSeconds(dashCooldown);
 
         lastDashTime = Time.time;
         isDashing = false;
