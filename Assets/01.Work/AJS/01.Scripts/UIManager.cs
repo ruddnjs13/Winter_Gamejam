@@ -4,14 +4,11 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject panel;    // 세팅 UI 패널
-    [SerializeField] private GameObject image;    // 세팅 UI 외의 이미지
-    [SerializeField] private string sceneName;    // 로드할 씬 이름
     [SerializeField] private Uiset uisetScript;   // Uiset 스크립트를 참조
 
     private void Start()
     {
         panel.SetActive(false);  // 세팅 패널은 시작 시 비활성화
-        image.SetActive(false);  // 이미지도 시작 시 비활성화
     }
 
     public void SettingBtn()
@@ -29,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     public void StartBtn()
     {
-        SceneManager.LoadScene(sceneName);   // Start 버튼 클릭 시 씬 전환
+        SceneManager.LoadScene("SampleScene");   // Start 버튼 클릭 시 씬 전환
     }
 
     public void ExitBtn()
