@@ -152,7 +152,7 @@ public class WaveManager : MonoSingleton<WaveManager>
         }
         else
         {
-            waveCountTxt.text = "적이 오고 있습니다.";
+            waveCountTxt.text = "적이 침투하고 있습니다!";
             yield return new WaitForSeconds(1f);
         }
 
