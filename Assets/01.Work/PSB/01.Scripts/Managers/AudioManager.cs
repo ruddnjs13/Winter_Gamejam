@@ -19,15 +19,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Slider sfxSlider;
 
     private string filePath;
-    [SerializeField] private string nextScene;
 
-    private BGMScript BGMScript;
+    [SerializeField] private BGMScript BGMScript;
 
     private void Start()
     {
         Time.timeScale = 1f;
-
-        BGMScript = FindAnyObjectByType<BGMScript>();
 
         if (BGMScript != null)
         {
@@ -53,11 +50,6 @@ public class AudioManager : MonoBehaviour
         });
         #endregion
 
-    }
-
-    public void StartBtnClick()
-    {
-        SceneManager.LoadScene(nextScene);
     }
 
     public void ExitBtnClick()
