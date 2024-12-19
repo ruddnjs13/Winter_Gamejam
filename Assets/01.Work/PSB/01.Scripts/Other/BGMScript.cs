@@ -22,7 +22,7 @@ public class BGMScript : MonoBehaviour
 
     private void Start()
     {
-        PlayBGM();
+        //PlayBGM();
     }
 
     public void PlayBGM()
