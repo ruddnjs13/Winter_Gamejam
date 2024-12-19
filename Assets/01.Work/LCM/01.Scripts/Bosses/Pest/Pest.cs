@@ -40,12 +40,12 @@ public class Pest : Boss{
     }
 
     private void Start(){
-        TransitionState(BossStateType.Idle);
+        TransitionState(BossStateType.Attack2);
 
     }
 
     public void RandomAttack(){
-        int rand = UnityEngine.Random.Range(1, 2);
+        int rand = UnityEngine.Random.Range(1, 4);
         switch (rand)
         {
             case 1:
