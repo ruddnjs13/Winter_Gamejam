@@ -4,7 +4,7 @@ using DG.Tweening;
 public class Pest_Attack3State : BossState
 {
     Vector2 _dashDir = Vector2.zero;
-    private bool _isHit;
+    private bool _isHit = false;
     private float _waitTimeCounter;
 
     public Pest_Attack3State(Pest pest) : base(pest){
@@ -13,7 +13,7 @@ public class Pest_Attack3State : BossState
     protected override void EnterState()
     {
         base.EnterState();
-        _pest.transform.DOMoveY(_pest.transform.position.y + 0.2f, 1.2f)
+        _pest.transform.DOMoveY(_pest.transform.position.y + 0.5f, 1.2f)
             .SetEase(Ease.OutBounce)
             .SetLoops(2, LoopType.Yoyo);
         
@@ -43,21 +43,22 @@ public class Pest_Attack3State : BossState
         if (_isHit)
         {
             _waitTimeCounter += Time.deltaTime;
-            if (_waitTimeCounter >= 6)
+            if (_waitTimeCounter >= 3)
             {
                 _waitTimeCounter = 0;
-                _pest.TransitionState(BossStateType.Idle);
+                _pest.TransitionState(BossStateType.Return);
             }
         }
+       
     }
 
     public override void FixedUpdateState()
     {
         base.FixedUpdateState();
         
-        _pest.RbCompo.linearVelocity = _dashDir * 8;
+        _pest.RbCompo.linearVelocity = _dashDir * _pest.PestData.dashSpeed;
         if (_isHit) return;
-        RaycastHit2D hit = Physics2D.Raycast(_pest.transform.position, _dashDir,2f, _pest._whatIsGround);
+        RaycastHit2D hit = Physics2D.Raycast(_pest.transform.position, _dashDir,1.2f, _pest._whatIsGround);
         if (hit.collider != null)
         {
             _pest.WallAttackCompo.WallWave(hit.collider.gameObject.transform
@@ -68,6 +69,8 @@ public class Pest_Attack3State : BossState
 
     protected override void ExitState()
     {
+        _isHit = false;
+        _pest.StopAllCoroutines();
         base.ExitState();
     }
 }
