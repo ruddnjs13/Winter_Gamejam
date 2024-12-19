@@ -175,12 +175,12 @@ public class WaveManager : MonoSingleton<WaveManager>
         if (currentWave == 4 || currentWave == 9 || currentWave == 14)
         {
             waveCountTxt.color = Color.red;
-            waveCountTxt.text = "보스가 등장합니다..";
+            waveCountTxt.text = "악성 파일이 감지되었습니다. \n지금 제거하세요!";
             yield return new WaitForSeconds(1f);
         }
         else
         {
-            waveCountTxt.text = "적이 침투하고 있습니다!";
+            waveCountTxt.text = "바이러스 발견";
             yield return new WaitForSeconds(1f);
         }
 
