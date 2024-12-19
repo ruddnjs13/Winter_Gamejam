@@ -137,7 +137,7 @@ public class SmallPox : Boss
                 if (_bossCount == 0)
                 {
                     Debug.Log("다음 스테이지");
-                    //WaveManager.Instance.EnemyDefeated();
+                    WaveManager.Instance.EnemyDefeated();
                 }
                 Destroy(gameObject);
                 return;

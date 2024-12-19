@@ -105,7 +105,7 @@ public class Pest : Boss{
         if (other.gameObject.CompareTag("Weapon") && IsCanDie)
         {
             Instantiate(_particle, transform.position, Quaternion.identity);
-           
+           WaveManager.Instance.EnemyDefeated();
             OnDead?.Invoke();
             Destroy(gameObject);
         }

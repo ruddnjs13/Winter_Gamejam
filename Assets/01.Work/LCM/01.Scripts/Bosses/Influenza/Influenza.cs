@@ -87,7 +87,7 @@ public class Influenza : Boss
         {
             Instantiate(_deadParticle,transform.position,Quaternion.identity);
             OnDead?.Invoke();
-            //WaveManager.Instance.EnemyDefeated();
+            WaveManager.Instance.EnemyDefeated();
             Destroy(gameObject);
         }
     }
