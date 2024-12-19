@@ -84,6 +84,7 @@ public class SmallPox : Boss
         {
             if (IsCanDie)
             {
+                WaveManager.Instance.EnemyDefeated();
                 OnDeath?.Invoke();
                 Destroy(gameObject);
                 return;

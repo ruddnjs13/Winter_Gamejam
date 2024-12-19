@@ -1,19 +1,28 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Pest : Boss{
+    
+    public LineRenderer LineRenderer{get; private set;}
     [field: SerializeField] public PestData PestData{ get; private set; }
     [field: SerializeField] public GameObject RotationObject{ get; private set; }
+    [field: SerializeField] public GameObject LaserCollider{ get; private set; }
     
     public List<GameObject> shields;
+    
+    public List<Transform> lines;
+
 
     public UnityEvent OnDead;
     public bool IsCanDie{ get; set; } = false;
 
     protected override void Awake(){
         base.Awake();
+        LineRenderer = GetComponent<LineRenderer>();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
         {
             try
@@ -31,11 +40,12 @@ public class Pest : Boss{
     }
 
     private void Start(){
-        TransitionState(BossStateType.Attack1);
+        TransitionState(BossStateType.Idle);
+
     }
 
     public void RandomAttack(){
-        int rand = UnityEngine.Random.Range(1, 5);
+        int rand = UnityEngine.Random.Range(1, 2);
         switch (rand)
         {
             case 1:
@@ -65,4 +75,6 @@ public class Pest : Boss{
     {
         shields.Remove(shield);
     }
+    
+    
 }

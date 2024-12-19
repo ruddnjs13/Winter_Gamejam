@@ -58,6 +58,7 @@ public class Influenza : Boss
         if (other.gameObject.CompareTag("Weapon") && IsCanDie)
         {
             OnDead?.Invoke();
+            WaveManager.Instance.EnemyDefeated();
             Destroy(gameObject);
         }
     }

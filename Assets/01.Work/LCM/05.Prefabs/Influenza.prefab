@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4284386242904332770}
   - component: {fileID: 1290724841882506436}
   - component: {fileID: 2692766879138414965}
+  - component: {fileID: 1602824022350838524}
   m_Layer: 10
   m_Name: Influenza
   m_TagString: Boss
@@ -114,7 +115,19 @@ MonoBehaviour:
   - {fileID: 2435604086570930829}
   OnDead:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4353569194995025840, guid: df06f171ae90bd447b97a94b7233f905, type: 3}
+        m_TargetAssemblyTypeName: DeatEffect, Assembly-CSharp
+        m_MethodName: InfluenzaDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &1290724841882506436
 Rigidbody2D:
   serializedVersion: 5
@@ -178,6 +191,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.00958243, y: -0.009983599}
   m_Radius: 0.48822123
+--- !u!114 &1602824022350838524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863204787847432194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb6521f2beff704f84e76eada8a1645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particle: {fileID: 0}
 --- !u!1 &2435604086570930829
 GameObject:
   m_ObjectHideFlags: 0
