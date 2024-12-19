@@ -29,6 +29,11 @@ public class WaveManager : MonoSingleton<WaveManager>
         enemySpawnManager = GetComponentInChildren<EnemySpawnManager>();
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private void StartWave()
     {
         enemySpawnManager.EnemyClear();
@@ -47,33 +52,26 @@ public class WaveManager : MonoSingleton<WaveManager>
             waveTxt.text = $"BossWave";
             waveTxt.color = Color.red;
 
-            enemySpawnManager.FiveWaveMethod();
+            enemySpawnManager.spawnPoint = enemySpawnManager.bossSpawnpoint;
+            enemySpawnManager.enemiesAlive = 1;
 
-            /*if (currentWave == 5)
+            if (currentWave == 5)
             {
-                Instantiate(bossPrefab, spawnPoint.position, Quaternion.identity);
+                enemySpawnManager.BossSpawnFiveMethod();
             }
             else if (currentWave == 10)
             {
-                Instantiate(bossPrefab2, spawnPoint.position, Quaternion.identity);
+                enemySpawnManager.BossSpawnTenMethod();
             }
             else if (currentWave == 15)
             {
-                Instantiate(bossPrefab3, spawnPoint.position, Quaternion.identity);
-            }*/
+                enemySpawnManager.BossSpawnFifteenMethod();
+            }
 
         }
         else
         {
-            for (int i = 0; i < numberOfEnemies; i++)
-            {
-                waveTxt.text = $"Wave : {currentWave}";
-                waveTxt.color = Color.black;
-
-                enemySpawnManager.WaveSpawnMethod();
-                
-            }
-            enemySpawnManager.enemiesAlive = numberOfEnemies;
+            StartCoroutine(SpawnCoroutine(currentWave));
         }
     }
 
@@ -109,6 +107,19 @@ public class WaveManager : MonoSingleton<WaveManager>
 
         waveCountTxt.gameObject.SetActive(false);
         StartWave();
+    }
+
+    private IEnumerator SpawnCoroutine(int numberOfEnemies)
+    {
+        for (int i = 0; i < numberOfEnemies; i++)
+        {
+            waveTxt.text = $"Wave : {currentWave}";
+            waveTxt.color = Color.black;
+
+            enemySpawnManager.WaveSpawnMethod();
+            yield return new WaitForSeconds(0.1f);
+        }
+        enemySpawnManager.enemiesAlive = numberOfEnemies;
     }
 
 }

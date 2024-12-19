@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
   poolName: MeleeEnemy
-  prefab: {fileID: 4636099400719792366, guid: cbe70bfc4a312c2419981143ee05819e, type: 3}
+  prefab: {fileID: 3349800132504910595, guid: cbe70bfc4a312c2419981143ee05819e, type: 3}
   count: 20

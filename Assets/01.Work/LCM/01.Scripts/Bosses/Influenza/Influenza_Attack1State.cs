@@ -7,7 +7,7 @@ public class Influenza_Attack1State : BossState
     private float _waitTime = 1.5f;
     private float _waitTimeCounter;
     private bool _isHit = false;
-    public Influenza_Attack1State(Influenza influenza) : base(influenza){
+    public Influenza_Attack1State(Influenza smallPox) : base(smallPox){
     }
 
     protected override void EnterState(){

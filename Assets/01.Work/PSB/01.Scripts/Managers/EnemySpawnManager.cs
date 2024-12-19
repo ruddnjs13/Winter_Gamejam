@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,12 +17,13 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private GameObject bossPrefab3;
     [Space(10)]
     [Header("SpawnPoint")]
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private Transform bossSpawnpoint;
+    public Transform spawnPoint;
+    public Transform bossSpawnpoint;
     [Space(10)]
     [Header("List")]
     [SerializeField] private List<Transform> enemyTrans = new List<Transform>();
     [SerializeField] private List<Enemy> enemyLists = new List<Enemy>();
+    [SerializeField] private List<Boss> bossLists = new List<Boss>();
 
     public int enemiesAlive = 0;
 
@@ -30,11 +33,19 @@ public class EnemySpawnManager : MonoBehaviour
         enemiesAlive = 1;
     }
 
-    public void FiveDrainageMethod(GameObject prefab)
+    public void BossSpawnFiveMethod()
     {
-        //Boss
-        //PoolManager.Instance.Pop(prefab);
+        Instantiate(bossPrefab, bossSpawnpoint.position, Quaternion.identity);
     }
+    public void BossSpawnTenMethod()
+    {
+        Instantiate(bossPrefab2, bossSpawnpoint.position, Quaternion.identity);
+    }
+    public void BossSpawnFifteenMethod()
+    {
+        Instantiate(bossPrefab3, bossSpawnpoint.position, Quaternion.identity);
+    }
+
     public void WaveSpawnMethod()
     {
         GameObject enemyToSpawn;
@@ -64,18 +75,33 @@ public class EnemySpawnManager : MonoBehaviour
                 enemyName = "MeleeEnemy";
                 break;
         }
-        int randomPoint = UnityEngine.Random.Range(0, enemyTrans.Count);
-        Vector2 randomOffset = UnityEngine.Random.insideUnitCircle;
-        Vector2 spawnedPoint = enemyTrans[randomPoint].position + (Vector3)randomOffset;
-        //spawnPoint = trans[UnityEngine.Random.Range(0, trans.Count)];
-        Enemy enemy = PoolManager.Instance.Pop(enemyName) as Enemy;
-        enemy.transform.position = spawnedPoint + randomOffset;
-        enemyLists.Add(enemy);
+        StartCoroutine(ShowWarningIcon(enemyName));
     }
 
     public void EnemyClear()
     {
         enemyLists.Clear();
+        bossLists.Clear();
+    }
+
+    private IEnumerator ShowWarningIcon(string enemyName)
+    {
+        int randomPoint = UnityEngine.Random.Range(0, enemyTrans.Count);
+        Vector2 randomOffset = UnityEngine.Random.insideUnitCircle;
+        Vector2 spawnedPoint = enemyTrans[randomPoint].position + (Vector3)randomOffset;
+        for (int i = 0; i < enemyTrans.Count; i++)
+        {
+            WarningMark mark = PoolManager.Instance.Pop("WarningMark") as WarningMark;
+            mark.transform.position = spawnedPoint;
+            yield return new WaitForSeconds(0.3f);
+            mark.gameObject.SetActive(false);
+        }
+        yield return new WaitForSeconds(0.5f);
+        Enemy enemy = PoolManager.Instance.Pop(enemyName) as Enemy;
+        enemy.transform.position = spawnedPoint + randomOffset;
+        enemy.transform.localScale = new Vector2(0, 0);
+        enemy.transform.DOScale(1, 0.5f).SetEase(Ease.OutFlash);
+        enemyLists.Add(enemy);
     }
 
 }

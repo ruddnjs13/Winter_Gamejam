@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5246686747106604547}
   - component: {fileID: 1602565362473526127}
-  m_Layer: 0
+  - component: {fileID: 9113044436181194852}
+  - component: {fileID: 3033785438456095169}
+  m_Layer: 10
   m_Name: ChildSmallPox
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,6 +72,61 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.0015123615, y: -0.007561701}
   m_Radius: 0.17938325
+--- !u!114 &9113044436181194852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605235578219492705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e895d1b1763e46945ad43d8456378bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCheckerBoxSize: {x: 50, y: 50}
+  _whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  <SmallPoxData>k__BackingField: {fileID: 11400000, guid: 500b55294943b244dac517e491a56970, type: 2}
+  <ShieldSprite>k__BackingField:
+  - {fileID: 1296229099, guid: 984eaed6506186845988d654ab206396, type: 3}
+  - {fileID: 49330854, guid: 984eaed6506186845988d654ab206396, type: 3}
+  _spriteRenderer: {fileID: 3973093231002841330}
+  _whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  <BoundCount>k__BackingField: 2
+--- !u!50 &3033785438456095169
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605235578219492705}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5526858835922950818
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,9 +137,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4274269128673509938}
   - component: {fileID: 3973093231002841330}
-  m_Layer: 0
+  - component: {fileID: 4062015051718726266}
+  m_Layer: 10
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +215,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &4062015051718726266
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526858835922950818}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.99999994
 --- !u!1 &6927347427279485473
 GameObject:
   m_ObjectHideFlags: 0
