@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour,IPoolable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy")) return;
+        if (collision.CompareTag("Enemy")|| collision.CompareTag("Projectile")) return;
         if (collision.CompareTag("Boss") || collision.CompareTag("Ground"))
         {
             PoolManager.Instance.Push(this);
