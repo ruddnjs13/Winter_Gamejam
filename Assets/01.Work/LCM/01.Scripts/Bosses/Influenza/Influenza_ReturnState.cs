@@ -18,7 +18,7 @@ public class Influenza_ReturnState : BossState{
 
     public override void UpdateState(){
         _nowPos = _influenza.transform.position;
-        if (Mathf.Abs(_nowPos.x) < epsilon || Mathf.Abs(_nowPos.y) < epsilon)
+        if (Mathf.Abs(_nowPos.x) < epsilon && Mathf.Abs(_nowPos.y) < epsilon)
         {
             _influenza.TransitionState(BossStateType.Idle);
         }

@@ -12,6 +12,7 @@ public class Influenza_Attack1State : BossState
     public Influenza_Attack1State(Influenza influenza) : base(influenza){
     }
 
+    
     protected override void EnterState(){
         _influenza.RbCompo.linearVelocity = Vector2.zero;
         _target = _influenza.GetPlayerPosition();

@@ -5,4 +5,5 @@ public class PestData : ScriptableObject{
     public float Attack1Speed;
     public float Attack1Count;
     public float rotationSpeed;
+    public int dashSpeed = 7;
 }

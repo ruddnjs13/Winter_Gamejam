@@ -26,7 +26,7 @@ TagManager:
   - Obstacle
   - BossProjectile
   - Bullet
-  - 
+  - Shield
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Boss
     uniqueID: 3753824735
+    locked: 0
+  - name: Enemy
+    uniqueID: 905498749
     locked: 0
   m_RenderingLayers:
   - Default

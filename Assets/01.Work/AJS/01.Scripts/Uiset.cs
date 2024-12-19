@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class Uiset : MonoBehaviour
 {
-    public GameObject image; // 이동할 이미지 (Inspector에서 설정)
-    public Button startButton;   // Start 버튼 (Inspector에서 설정)
-    public Button settingButton; // Setting 버튼 (Inspector에서 설정)
-    public Button exitButton;    // Exit 버튼 (Inspector에서 설정)
+    public GameObject image;  // 이동할 이미지
+    public Button startButton;
+    public Button settingButton;
+    public Button exitButton;
 
     private const float fixedXPosition = -931f; // 고정된 X 좌표
     private float currentYPosition = 190f;      // 현재 선택된 Y 좌표
@@ -14,21 +14,19 @@ public class Uiset : MonoBehaviour
     private readonly float middleYPosition = 65f; // Setting 버튼 Y 좌표
     private readonly float bottomYPosition = -55f; // Exit 버튼 Y 좌표
 
+    private bool isPanelActive = false; // 패널이 활성화된 상태를 확인
+    private bool isInputLocked = false; // 입력 잠금 플래그
+
     void Start()
     {
-        // 버튼 클릭 동작 설정
-        startButton.onClick.AddListener(ExecuteStartButton);
-        settingButton.onClick.AddListener(ExecuteSettingButton);
-        exitButton.onClick.AddListener(ExecuteExitButton);
-
-        image.SetActive(false); // 시작 시 이미지 비활성화
+        image.SetActive(false);  // 시작 시 이미지 비활성화
         MoveImage(currentYPosition); // 초기 위치 설정
-        image.SetActive(true); // 이미지 활성화
+        image.SetActive(true);  // 이미지 활성화
     }
 
     void Update()
     {
-        if (image == null) return;
+        if (isPanelActive || image == null || isInputLocked) return;  // 입력 잠금 또는 패널 활성화 중이면 입력 차단
 
         // 위쪽 이동: 190 → -55
         if (Input.GetKeyDown(KeyCode.UpArrow) && currentYPosition == topYPosition)
@@ -74,6 +72,8 @@ public class Uiset : MonoBehaviour
 
     void ExecuteSelectedButton()
     {
+        isInputLocked = true; // 입력 잠금 활성화
+
         // 현재 Y 좌표에 따라 버튼 실행
         if (currentYPosition == topYPosition)
         {
@@ -89,22 +89,24 @@ public class Uiset : MonoBehaviour
         }
     }
 
-    void ExecuteStartButton()
+    public void SetPanelActive(bool isActive)
     {
-        Debug.Log("게임이 시작됩니다!");
-        // 실제 Start 버튼 동작 추가
-    }
+        // UIManager에서 패널의 활성화 상태를 받아서 이미지 처리
+        isPanelActive = isActive;
 
-    void ExecuteSettingButton()
-    {
-        Debug.Log("설정 화면으로 이동합니다!");
-        // 실제 Setting 버튼 동작 추가
-    }
+        if (isPanelActive)
+        {
+            image.SetActive(false); // 패널이 활성화되면 이미지 비활성화
+        }
+        else
+        {
+            image.SetActive(true); // 패널이 비활성화되면 이미지 활성화
 
-    void ExecuteExitButton()
-    {
-        Debug.Log("게임을 종료합니다!");
-        Application.Quit();
-        // 실제 Exit 버튼 동작 추가
+            // 비활성화 후 입력 상태 초기화
+            currentYPosition = 190f; // 초기 위치로 복구
+            MoveImage(currentYPosition);
+
+            isInputLocked = false; // 입력 잠금 해제
+        }
     }
 }
