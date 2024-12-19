@@ -33,6 +33,7 @@ public class Bullet : MonoBehaviour,IPoolable
             Debug.Log("푸시");
             PoolManager.Instance.Push(this);
         }
+        PoolManager.Instance.Push(this);
     }
 
     public void SetVelocity(Vector2 velocity)

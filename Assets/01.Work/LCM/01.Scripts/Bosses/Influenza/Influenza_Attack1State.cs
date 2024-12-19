@@ -27,9 +27,12 @@ public class Influenza_Attack1State : BossState
                 _influenza.InfluenzaData.checkGroundRadius, _influenza._whatIsGround);
 
             Vector2 pos = collider2D.ClosestPoint(_influenza.transform.position);
-            
-            if(_isHit == false)
+
+            if (_isHit == false)
+            {
+                _influenza.FeedbackPlayer.PlayFeedbacks();
                 _influenza.InstatiateCollisionParticle(pos);
+            }
             _isHit = true;
         }
     }

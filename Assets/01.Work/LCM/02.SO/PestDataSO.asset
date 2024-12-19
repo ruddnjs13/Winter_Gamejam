@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PestDataSO
   m_EditorClassIdentifier: 
   Attack1Speed: 0.15
-  Attack1Count: 60
+  Attack1Count: 45
   rotationSpeed: 340
   dashSpeed: 7

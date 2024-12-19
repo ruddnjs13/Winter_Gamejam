@@ -53,7 +53,7 @@ public class Pest : Boss{
     }
 
     private void Start(){
-        TransitionState(BossStateType.Idle);
+        TransitionState(BossStateType.Attack1);
 
     }
 
