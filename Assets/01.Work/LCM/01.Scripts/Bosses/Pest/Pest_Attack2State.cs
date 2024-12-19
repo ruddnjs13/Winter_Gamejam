@@ -31,7 +31,7 @@ public class Pest_Attack2State : BossState
     
     public IEnumerator LaserAttackCoroutine()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
             
             
@@ -86,6 +86,7 @@ public class Pest_Attack2State : BossState
 
     protected override void ExitState()
     {
+        _pest.StopAllCoroutines();
         isShoot = false;
         base.ExitState();
     }

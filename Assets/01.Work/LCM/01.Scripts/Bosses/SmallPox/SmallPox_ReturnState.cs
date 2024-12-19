@@ -12,10 +12,11 @@ public class SmallPox_ReturnState : BossState
     protected override void EnterState(){
         _smallPox.RbCompo.linearVelocity = Vector2.zero;
         _moveDir = _smallPox.DefaultTransform - _smallPox.transform.position;
+        _moveDir.Normalize();
     }
 
     public override void FixedUpdateState(){
-        _smallPox.RbCompo.linearVelocity = _moveDir.normalized * _smallPox.SmallPoxData.returnSpeed;
+        _smallPox.RbCompo.linearVelocity = _moveDir * _smallPox.SmallPoxData.returnSpeed;
     }
 
     public override void UpdateState(){

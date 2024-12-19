@@ -7,6 +7,8 @@ using UnityEngine.Serialization;
 
 public class Pest : Boss{
     
+    public  Vector3 DefaultTransform { get; set; }
+
     public LineRenderer LineRenderer{get; private set;}
     [field: SerializeField] public PestData PestData{ get; private set; }
     [field: SerializeField] public GameObject RotationObject{ get; private set; }
@@ -26,6 +28,8 @@ public class Pest : Boss{
 
     [SerializeField] private ParticleSystem _particle;
     public bool IsCanDie{ get; set; } = false;
+    
+    private BossStateType _currentState;
 
     protected override void Awake(){
         base.Awake();
@@ -45,10 +49,11 @@ public class Pest : Boss{
                 // ignored
             }
         }
+        DefaultTransform = transform.position;
     }
 
     private void Start(){
-        TransitionState(BossStateType.Attack3);
+        TransitionState(BossStateType.Idle);
 
     }
 
@@ -57,15 +62,40 @@ public class Pest : Boss{
         switch (rand)
         {
             case 1:
+                if (_currentState == BossStateType.Attack1)
+                {
+                    RandomAttack();
+                    break;
+                }
+
+                _currentState = BossStateType.Attack1;
                 TransitionState(BossStateType.Attack1);
                 break;
             case 2:
+                if (_currentState == BossStateType.Attack2)
+                {
+                    RandomAttack();
+                    break;
+                }
+                _currentState = BossStateType.Attack2;
                 TransitionState(BossStateType.Attack2);
                 break;
             case 3:
+                if (_currentState == BossStateType.Attack3)
+                {
+                    RandomAttack();
+                    break;
+                }
+                _currentState = BossStateType.Attack3;
                 TransitionState(BossStateType.Attack3);
                 break;
             case 4:
+                if (_currentState == BossStateType.Attack4)
+                {
+                    RandomAttack();
+                    break;
+                }
+                _currentState = BossStateType.Attack4;
                 TransitionState(BossStateType.Attack4);
                 break;
         }
@@ -75,6 +105,7 @@ public class Pest : Boss{
         if (other.gameObject.CompareTag("Weapon") && IsCanDie)
         {
             Instantiate(_particle, transform.position, Quaternion.identity);
+           WaveManager.Instance.EnemyDefeated();
             OnDead?.Invoke();
             Destroy(gameObject);
         }

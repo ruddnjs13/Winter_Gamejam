@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Influenza : Boss
 {
@@ -13,11 +14,13 @@ public class Influenza : Boss
 
     public UnityEvent OnDead;
     
-    [SerializeField] private ParticleSystem _particle;
+    [SerializeField] private ParticleSystem _deadParticle;
+    [field:SerializeField] public ParticleSystem _collisionParticle{ get; private set; }
 
     public bool IsCanDie{ get; set; } = false;
 
     private BossStateType _currentState;
+
     protected override void Awake(){
         base.Awake();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
@@ -38,7 +41,7 @@ public class Influenza : Boss
     }
 
     private void Start(){
-        TransitionState(BossStateType.Attack2);
+        TransitionState(BossStateType.Idle);
     }
 
     public void RandomAttack(){
@@ -82,11 +85,15 @@ public class Influenza : Boss
     private void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.CompareTag("Weapon") && IsCanDie)
         {
-            Instantiate(_particle,transform.position,Quaternion.identity);
+            Instantiate(_deadParticle,transform.position,Quaternion.identity);
             OnDead?.Invoke();
-            //WaveManager.Instance.EnemyDefeated();
+            WaveManager.Instance.EnemyDefeated();
             Destroy(gameObject);
         }
+    }
+
+    public void InstatiateCollisionParticle(Vector2 pos){
+        Instantiate(_collisionParticle,pos,Quaternion.identity);
     }
 
     public void RemoveList(GameObject shield)

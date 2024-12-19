@@ -7,9 +7,12 @@ public class Influenza_Attack1State : BossState
     private float _waitTime = 1.5f;
     private float _waitTimeCounter;
     private bool _isHit = false;
-    public Influenza_Attack1State(Influenza smallPox) : base(smallPox){
+
+
+    public Influenza_Attack1State(Influenza influenza) : base(influenza){
     }
 
+    
     protected override void EnterState(){
         _influenza.RbCompo.linearVelocity = Vector2.zero;
         _target = _influenza.GetPlayerPosition();
@@ -20,6 +23,13 @@ public class Influenza_Attack1State : BossState
         _influenza.RbCompo.linearVelocity = _moveDir * _influenza.InfluenzaData.moveSpeed;
         if (Physics2D.OverlapCircle(_influenza.transform.position,_influenza.InfluenzaData.checkGroundRadius, _influenza._whatIsGround))
         {
+            Collider2D collider2D = Physics2D.OverlapCircle(_influenza.transform.position,
+                _influenza.InfluenzaData.checkGroundRadius, _influenza._whatIsGround);
+
+            Vector2 pos = collider2D.ClosestPoint(_influenza.transform.position);
+            
+            if(_isHit == false)
+                _influenza.InstatiateCollisionParticle(pos);
             _isHit = true;
         }
     }
@@ -34,5 +44,9 @@ public class Influenza_Attack1State : BossState
                 _influenza.TransitionState(BossStateType.Return);
             }
         }
+    }
+
+    protected override void ExitState(){
+        _isHit = false;
     }
 }

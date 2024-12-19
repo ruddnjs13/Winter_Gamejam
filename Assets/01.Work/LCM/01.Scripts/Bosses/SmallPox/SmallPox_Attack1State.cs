@@ -20,6 +20,13 @@ public class SmallPox_Attack1State : BossState
         _smallPox.RbCompo.linearVelocity = _moveDir * _smallPox.SmallPoxData.moveSpeed;
         if (Physics2D.OverlapCircle(_smallPox.transform.position,_smallPox.SmallPoxData.checkGroundRadius, _smallPox._whatIsGround))
         {
+            Collider2D collider2D = Physics2D.OverlapCircle(_smallPox.transform.position,
+                _smallPox.SmallPoxData.checkGroundRadius, _smallPox._whatIsGround);
+
+            Vector2 pos = collider2D.ClosestPoint(_smallPox.transform.position);
+            
+            if(_isHit == false)
+                _smallPox.InstatiateCollisionParticle(pos);
             _isHit = true;
         }
     }

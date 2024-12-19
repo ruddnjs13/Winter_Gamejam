@@ -5,7 +5,7 @@ public class Influenza_GroggyState : BossState{
     private float _curTime;
     private float _checkTime = 1f;
     
-    public Influenza_GroggyState(Influenza smallPox) : base(smallPox){
+    public Influenza_GroggyState(Influenza influenza) : base(influenza){
     }
 
     protected override void EnterState(){

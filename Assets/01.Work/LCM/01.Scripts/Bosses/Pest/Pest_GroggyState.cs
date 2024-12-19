@@ -11,6 +11,8 @@ public class Pest_GroggyState : BossState
     
     protected override void EnterState(){
         _pest.RbCompo.linearVelocity = Vector2.zero;
+        _pest.LineRenderer.startColor = new Color(0f,0f,0f,0);
+        _pest.LineRenderer.endColor = new Color(0f,0f,0f,0);
     }
 
     public override void UpdateState(){

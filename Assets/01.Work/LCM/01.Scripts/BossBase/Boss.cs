@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public abstract class Boss : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public abstract class Boss : MonoBehaviour
         StateEnum[CurrentState].Exit();
         CurrentState = newState;
         StateEnum[CurrentState].Enter();
+        Debug.Log(CurrentState);
     }
 
     private void Update()
