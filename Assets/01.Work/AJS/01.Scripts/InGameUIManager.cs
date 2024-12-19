@@ -17,6 +17,7 @@ public class InGameUIManager : MonoBehaviour
         escPanel.SetActive(false);
         clearPanel.SetActive(false);
         deadPanel.SetActive(false);
+        inputReader.LockInput(true);
     }
 
     private void Update()
