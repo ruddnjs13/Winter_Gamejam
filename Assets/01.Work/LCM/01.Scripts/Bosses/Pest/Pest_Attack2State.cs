@@ -45,8 +45,8 @@ public class Pest_Attack2State : BossState
             _pest.LaserCollider.gameObject.SetActive(true);
             _pest.LineRenderer.startWidth = 1.4f;
             _pest.LineRenderer.endWidth = 2f;
-            _pest.LineRenderer.startColor = new Color(1f, 1f, 1f, 1);
-            _pest.LineRenderer.endColor = new Color(1f, 1f, 1f, 1);
+            _pest.LineRenderer.startColor = new Color(0f, 1f, 0f, 1);
+            _pest.LineRenderer.endColor = new Color(0f, 1f, 0f, 1);
             yield return new WaitForSeconds(1.2f);
             _pest.LaserCollider.gameObject.SetActive(false);
             isShoot = false;

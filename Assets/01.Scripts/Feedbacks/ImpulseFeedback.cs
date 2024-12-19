@@ -1,11 +1,11 @@
-// using cine;
+// using Unity.Cinemachine.Editor.CinemachineImpulseChannels
+// using Unity.Cinemachine;
 // using UnityEngine;
 //
 //
 // [RequireComponent(typeof(CinemachineImpulseSource))]
 // public class ImpulseFeedback : Feedback
 // {
-//     [SerializeField] private Gun _gun;
 //     [SerializeField] private float _impulsePower = 0.3f;
 //     private CinemachineImpulseSource _source;
 //
