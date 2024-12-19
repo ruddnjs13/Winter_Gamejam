@@ -26,7 +26,7 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private List<Boss> bossLists = new List<Boss>();
 
     public int enemiesAlive = 0;
-
+    
     public void FiveWaveMethod()
     {
         spawnPoint = bossSpawnpoint;
@@ -99,8 +99,8 @@ public class EnemySpawnManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Enemy enemy = PoolManager.Instance.Pop(enemyName) as Enemy;
         enemy.transform.position = spawnedPoint + randomOffset;
-        enemy.transform.localScale = new Vector2(0, 0);
-        enemy.transform.DOScale(1, 0.3f);
+        //enemy.transform.localScale = new Vector2(0, 0);
+        //enemy.transform.DOScale(Vector2.one, 0.3f);
         enemyLists.Add(enemy);
     }
 
