@@ -12,6 +12,8 @@ public class Influenza : Boss
     public List<GameObject> shields;
 
     public UnityEvent OnDead;
+    
+    [SerializeField] private ParticleSystem _particle;
 
     public bool IsCanDie{ get; set; } = false;
     
@@ -57,7 +59,9 @@ public class Influenza : Boss
     private void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.CompareTag("Weapon") && IsCanDie)
         {
+            Instantiate(_particle,transform.position,Quaternion.identity);
             OnDead?.Invoke();
+            //WaveManager.Instance.EnemyDefeated();
             Destroy(gameObject);
         }
     }
