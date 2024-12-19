@@ -10,6 +10,8 @@ public class SmallPox : Boss
     [field: SerializeField] public List<Sprite> ShieldSprite { get; private set; }
     
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    
+    public FeedbackPlayer FeedbackPlayer { get; set; }
 
     private int hp = 2;
     
@@ -38,6 +40,7 @@ public class SmallPox : Boss
     [field: SerializeField] public int BoundCount{ get; private set; }
     protected override void Awake(){
         base.Awake();
+        FeedbackPlayer = GetComponent<FeedbackPlayer>();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
         {
             try
@@ -109,6 +112,7 @@ public class SmallPox : Boss
     private void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.CompareTag("Ground"))
         {
+            FeedbackPlayer.PlayFeedbacks();
             Collider2D collider2D = Physics2D.OverlapCircle(transform.position,
                 SmallPoxData.checkGroundRadius, _whatIsGround);
 

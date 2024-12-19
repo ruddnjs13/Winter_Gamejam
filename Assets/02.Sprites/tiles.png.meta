@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fe212c602a323804e95b41cf08e28139
+guid: 21e916525711ad243a68e8cd7f0b3abc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 724730490297136228
-    second: 7b84e332414a54ce 1_0
+      213: 1807125615787039003
+    second: tiles_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 4
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 7b84e332414a54ce 1_0
+      name: tiles_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 0
-        width: 36
-        height: 128
+        x: 72
+        y: 122
+        width: 6
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4643e088a82ce0a00800000000000000
-      internalID: 724730490297136228
+      spriteID: b19de794c23341910800000000000000
+      internalID: 1807125615787039003
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f99d7593e38dd6047b82b880c01c18b5
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      7b84e332414a54ce 1_0: 724730490297136228
+      tiles_0: 1807125615787039003
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

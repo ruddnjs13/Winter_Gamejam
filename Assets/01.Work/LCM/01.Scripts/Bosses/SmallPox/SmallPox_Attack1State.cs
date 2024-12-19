@@ -24,8 +24,12 @@ public class SmallPox_Attack1State : BossState
                 _smallPox.SmallPoxData.checkGroundRadius, _smallPox._whatIsGround);
 
             Vector2 pos = collider2D.ClosestPoint(_smallPox.transform.position);
-            
-            if(_isHit == false)
+
+            if (_isHit == false)
+            {
+                _smallPox.FeedbackPlayer.PlayFeedbacks();
+
+            }
                 _smallPox.InstatiateCollisionParticle(pos);
             _isHit = true;
         }

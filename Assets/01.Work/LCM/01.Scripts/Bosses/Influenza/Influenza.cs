@@ -17,12 +17,15 @@ public class Influenza : Boss
     [SerializeField] private ParticleSystem _deadParticle;
     [field:SerializeField] public ParticleSystem _collisionParticle{ get; private set; }
 
+    public FeedbackPlayer FeedbackPlayer {get; private set;}
+
     public bool IsCanDie{ get; set; } = false;
 
     private BossStateType _currentState;
 
     protected override void Awake(){
         base.Awake();
+        FeedbackPlayer = GetComponent<FeedbackPlayer>();
         foreach (BossStateType stateType in Enum.GetValues(typeof(BossStateType)))
         {
             try
