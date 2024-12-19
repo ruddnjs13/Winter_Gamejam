@@ -73,6 +73,11 @@ public class SmallPox : Boss
         Debug.Log(_bossCount);
     }
 
+    private void OnEnable()
+    {
+        _bossCount = 2;
+    }
+
     public void RandomAttack(){
         int rand  = UnityEngine.Random.Range(1, 4);
         switch (rand)
