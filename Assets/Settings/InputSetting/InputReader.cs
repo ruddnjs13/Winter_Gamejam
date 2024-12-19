@@ -30,7 +30,7 @@ public class InputReader : ScriptableObject, Controls.IPlayerActions
 
     public void LockInput(bool value)
     {
-        if (value)
+        if (value == true)
         {
             _controls.Enable();
         }

@@ -12,6 +12,7 @@ public class InGameUIManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         escPanel.SetActive(false);
         clearPanel.SetActive(false);
         deadPanel.SetActive(false);
@@ -25,6 +26,7 @@ public class InGameUIManager : MonoBehaviour
             {
                 if (escPanel.activeSelf)
                 {
+                    inputReader.LockInput(true);
                     CloseEscPanel();
                 }
                 else
@@ -32,7 +34,7 @@ public class InGameUIManager : MonoBehaviour
                     inputReader.LockInput(false);
                     OpenEscPanel();
                 }
-                inputReader.LockInput(true);
+                
             }
         }
 
@@ -62,11 +64,13 @@ public class InGameUIManager : MonoBehaviour
 
     public void DeadPanel()
     {
+        Time.timeScale = 0f;
         deadPanel.SetActive(true);
     }
 
     public void ClearPanel()
     {
+        Time.timeScale = 0f;
         clearPanel.SetActive(true);
     }
 
