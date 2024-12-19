@@ -1,24 +1,33 @@
 using System;
+using Unity.VisualScripting.FullSerializer.Internal.Converters;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     [Header("PlayerSetting")]
     [SerializeField] private float _moveSpeed = 4f;
+
+    private WeaponArm _weaponArm;
     
     
     private PlayerMove _playerMove;
     private PlayerRenderer _playerRenderer;
     [SerializeField] private InputReader _inputReader;
-
+    
+    private bool isDead = false;
+    
     public bool isVerticalMove { get; set; } = false;
     public bool isReverseMove { get; set; } = false;
+
+    public UnityEvent DeadEvent;
     
     private void Awake()
     {
         _playerMove = GetComponent<PlayerMove>();
         _playerRenderer = transform.Find("Visual").GetComponent<PlayerRenderer>();
+        _weaponArm = GetComponentInChildren<WeaponArm>();
     }
 
     private void OnEnable()
@@ -34,12 +43,12 @@ public class Player : MonoBehaviour
     private void HandleReversePos()
     {
         _playerMove.ReversePos();
-        
     }
 
 
     private void Update()
     {
+        if(isDead) return;
         MoveCharacter();
     }
 
@@ -80,9 +89,18 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") || collision.CompareTag("Obstacle")|| collision.CompareTag("Boss"))
+        if (isDead) return;
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Obstacle")|| collision.CompareTag("Boss") || collision.CompareTag("Projectile"))
         {
-            Time.timeScale = 0;
+            _playerMove.Stop();
+            isDead = true;
+            _weaponArm.gameObject.SetActive(false);
+            _playerRenderer.SetDead();
+            _inputReader.ReversePosEvent -= HandleReversePos;
         }
     }
+    
+    
+
+    
 }

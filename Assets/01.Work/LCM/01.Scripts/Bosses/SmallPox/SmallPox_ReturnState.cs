@@ -23,6 +23,7 @@ public class SmallPox_ReturnState : BossState
         _nowPos = _smallPox.transform.position;
         if (Mathf.Abs(_nowPos.x) < epsilon || Mathf.Abs(_nowPos.y) < epsilon)
         {
+            _smallPox.transform.position = _smallPox.DefaultTransform;
             _smallPox.TransitionState(BossStateType.Idle);
         }
     }
