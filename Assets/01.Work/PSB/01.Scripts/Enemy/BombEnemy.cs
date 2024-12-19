@@ -11,7 +11,6 @@ public class BombEnemy : Enemy, IPoolable
 
     private void Start()
     {
-        moveSpeed = 6f;
         CheckPlayerPosition();
     }
 
@@ -54,6 +53,7 @@ public class BombEnemy : Enemy, IPoolable
 
     public void ResetItem()
     {
+        moveSpeed = 6f;
     }
 
 

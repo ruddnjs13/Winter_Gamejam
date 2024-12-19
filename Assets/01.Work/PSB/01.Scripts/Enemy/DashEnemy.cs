@@ -67,7 +67,7 @@ public class DashEnemy : Enemy, IPoolable
         Vector2 dashDirection = (player.position - transform.position).normalized;
         Vector2 targetPosition = (Vector2)transform.position + dashDirection * dashDistance;
 
-        transform.DOMove(targetPosition, 3f)
+        transform.DOMove(targetPosition, 1f)
             .SetEase(Ease.OutCubic);
 
         yield return new WaitForSeconds(dashCooldown);
@@ -78,6 +78,7 @@ public class DashEnemy : Enemy, IPoolable
 
     public void ResetItem()
     {
+        moveSpeed = 6f;
     }
 
 

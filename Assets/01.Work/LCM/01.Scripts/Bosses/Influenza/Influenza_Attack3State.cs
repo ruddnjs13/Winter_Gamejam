@@ -5,7 +5,7 @@ public class Influenza_Attack3State : BossState
     private float _curTime;
     private int attackCount;
     private Vector2 _moveDir;
-    public Influenza_Attack3State(Influenza smallPox) : base(smallPox){
+    public Influenza_Attack3State(Influenza influenza) : base(influenza){
     }
 
     protected override void EnterState(){

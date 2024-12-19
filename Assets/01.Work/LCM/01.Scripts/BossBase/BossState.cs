@@ -13,8 +13,8 @@ public class BossState{
         _smallPox = smallPox;
     }
 
-    public BossState(Influenza smallPox){
-        _influenza = smallPox;
+    public BossState(Influenza influenza){
+        _influenza = influenza;
     }
     
     protected virtual void EnterState()

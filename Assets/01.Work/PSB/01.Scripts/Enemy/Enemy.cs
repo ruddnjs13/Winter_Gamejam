@@ -6,24 +6,19 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 3f;
     public float attackRange = 1f;
     public Transform player;
-    /*[SerializeField] private Material mat;
-    private SpriteRenderer sprite;*/
 
     private int fadeHash;
     public float fadeDuration = 1f;
 
     private void Start()
     {
-        //sprite = GetComponent<SpriteRenderer>();
         StartCoroutine(WaitMove());
-        //mat = sprite.material;
-        //fadeHash = Shader.PropertyToID("_Fade");
-        //mat.SetFloat(fadeHash, 1f);
     }
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
     private void Update()
@@ -37,9 +32,9 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator WaitMove()
     {
-        moveSpeed = 0;
-        yield return new WaitForSeconds(1.8f);
-        moveSpeed = 3f;
+        moveSpeed = 0f;
+        yield return new WaitForSeconds(2.5f);
+        moveSpeed = 6f;
     }
 
     /*private IEnumerator ShaderCoroutine()
