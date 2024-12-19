@@ -13,6 +13,8 @@ public class SmallPox : Boss
 
     private int hp = 2;
     
+    private BossStateType _currentState;
+    
     public Vector3 DefaultTransform {get; private set;}
 
     public LayerMask _whatIsGround;
@@ -24,7 +26,7 @@ public class SmallPox : Boss
     public bool IsCanDie{ get; set; } = false;
     
     public UnityEvent OnDeath;
-    private bool _isCanHit;
+    private static bool _isCanHit;
     private float _curTime;
     private float _maxTime = 1f;
     
@@ -67,12 +69,34 @@ public class SmallPox : Boss
         switch (rand)
         {
             case 1:
+                if (_currentState == BossStateType.Attack1)
+                {
+                    Debug.Log("다시 뽑음");
+                    RandomAttack();
+                    break;
+                }
+
+                _currentState = BossStateType.Attack1;
                 TransitionState(BossStateType.Attack1);
                 break;
             case 2:
+                if (_currentState == BossStateType.Attack2)
+                {
+                    Debug.Log("다시 뽑음");
+                    RandomAttack();
+                    break;
+                }
+                _currentState = BossStateType.Attack2;
                 TransitionState(BossStateType.Attack2);
                 break;
             case 3:
+                if (_currentState == BossStateType.Attack3)
+                {
+                    Debug.Log("다시 뽑음");
+                    RandomAttack();
+                    break;
+                }
+                _currentState = BossStateType.Attack3;
                 TransitionState(BossStateType.Attack3);
                 break;
         }
@@ -98,7 +122,7 @@ public class SmallPox : Boss
             if (IsCanDie)
             {
                 Instantiate(_particleSystem, transform.position, Quaternion.identity);
-                //WaveManager.Instance.EnemyDefeated();
+                WaveManager.Instance.EnemyDefeated();
                 OnDeath?.Invoke();
                 Destroy(gameObject);
                 return;

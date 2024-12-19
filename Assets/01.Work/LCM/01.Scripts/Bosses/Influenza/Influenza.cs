@@ -16,6 +16,8 @@ public class Influenza : Boss
     [SerializeField] private ParticleSystem _particle;
 
     public bool IsCanDie{ get; set; } = false;
+
+    private BossStateType _currentState;
     
     protected override void Awake(){
         base.Awake();
@@ -37,7 +39,7 @@ public class Influenza : Boss
     }
 
     private void Start(){
-        TransitionState(BossStateType.Idle);
+        TransitionState(BossStateType.Attack2);
     }
 
     public void RandomAttack(){
@@ -45,12 +47,34 @@ public class Influenza : Boss
         switch (rand)
         {
             case 1:
+                if (_currentState == BossStateType.Attack1)
+                {
+                    Debug.Log("다시 뽑음");
+                    RandomAttack();
+                    break;
+                }
+
+                _currentState = BossStateType.Attack1;
                 TransitionState(BossStateType.Attack1);
                 break;
             case 2:
+                if (_currentState == BossStateType.Attack2)
+                {
+                    Debug.Log("다시 뽑음");
+                    RandomAttack();
+                    break;
+                }
+                _currentState = BossStateType.Attack2;
                 TransitionState(BossStateType.Attack2);
                 break;
             case 3:
+                if (_currentState == BossStateType.Attack3)
+                {
+                    Debug.Log("다시 뽑음");
+                    RandomAttack();
+                    break;
+                }
+                _currentState = BossStateType.Attack3;
                 TransitionState(BossStateType.Attack3);
                 break;
         }
@@ -61,7 +85,7 @@ public class Influenza : Boss
         {
             Instantiate(_particle,transform.position,Quaternion.identity);
             OnDead?.Invoke();
-            //WaveManager.Instance.EnemyDefeated();
+            WaveManager.Instance.EnemyDefeated();
             Destroy(gameObject);
         }
     }
