@@ -135,7 +135,7 @@ public class WaveManager : MonoSingleton<WaveManager>
 
     private IEnumerator WaveStartCount(int waveCount)
     {
-        waveCountTxt.color = Color.black;
+        waveCountTxt.color = Color.white;
         waveCountTxt.gameObject.SetActive(true);
 
         for (int i = waveCount; i > 0; i--)
@@ -164,8 +164,8 @@ public class WaveManager : MonoSingleton<WaveManager>
     {
         for (int i = 0; i < numberOfEnemies; i++)
         {
+            waveTxt.color = Color.white;
             waveTxt.text = $"Wave : {currentWave}";
-            waveTxt.color = Color.black;
 
             enemySpawnManager.WaveSpawnMethod();
             yield return new WaitForSeconds(0.1f);
