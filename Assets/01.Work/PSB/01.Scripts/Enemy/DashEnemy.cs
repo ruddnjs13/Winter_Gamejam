@@ -14,11 +14,6 @@ public class DashEnemy : Enemy, IPoolable
     public string PoolName => "DashEnemy";
     public GameObject objectPrefab => gameObject;
 
-    private void Start()
-    {
-        isDashing = true;
-        isDashing = false;
-    }
 
     private void Update()
     {
