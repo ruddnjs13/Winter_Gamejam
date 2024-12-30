@@ -52,7 +52,7 @@ public class NiddleManager : MonoSingleton<NiddleManager>
                 yield return new WaitForSeconds(0.03f);
                 mark.gameObject.SetActive(false); 
             }
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.15f);
             Niddle spike = PoolManager.Instance.Pop("Niddle") as Niddle;
             if (spike != null)
             {
@@ -77,7 +77,7 @@ public class NiddleManager : MonoSingleton<NiddleManager>
                 yield return new WaitForSeconds(0.03f);
                 mark.gameObject.SetActive(false);
             }
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.15f);
             Niddle spike = PoolManager.Instance.Pop("Niddle") as Niddle;
             if (spike != null)
             {
@@ -102,7 +102,7 @@ public class NiddleManager : MonoSingleton<NiddleManager>
                 yield return new WaitForSeconds(0.03f);
                 mark.gameObject.SetActive(false);
             }
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.15f);
             Niddle spike = PoolManager.Instance.Pop("Niddle") as Niddle;
             if (spike != null)
             {
@@ -127,7 +127,7 @@ public class NiddleManager : MonoSingleton<NiddleManager>
                 yield return new WaitForSeconds(0.03f);
                 mark.gameObject.SetActive(false);
             }
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.15f);
             Niddle spike = PoolManager.Instance.Pop("Niddle") as Niddle;
             if (spike != null)
             {

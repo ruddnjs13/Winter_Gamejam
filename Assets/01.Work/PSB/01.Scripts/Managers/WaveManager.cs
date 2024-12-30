@@ -115,10 +115,10 @@ public class WaveManager : MonoSingleton<WaveManager>
                     StartCoroutine(SpawnCoroutine(2));
                     break;
                 case 6:
-                    StartCoroutine(SpawnCoroutine(4));
+                    StartCoroutine(SpawnCoroutine(3));
                     break;
                 case 7:
-                    StartCoroutine(SpawnCoroutine(4));
+                    StartCoroutine(SpawnCoroutine(3));
                     break;
                 case 8:
                     StartCoroutine(SpawnCoroutine(4));
@@ -127,16 +127,16 @@ public class WaveManager : MonoSingleton<WaveManager>
                     StartCoroutine(SpawnCoroutine(4));
                     break;
                 case 11:
-                    StartCoroutine(SpawnCoroutine(6));
+                    StartCoroutine(SpawnCoroutine(5));
                     break;
                 case 12:
-                    StartCoroutine(SpawnCoroutine(7));
+                    StartCoroutine(SpawnCoroutine(4));
                     break;
                 case 13:
-                    StartCoroutine(SpawnCoroutine(9));
+                    StartCoroutine(SpawnCoroutine(5));
                     break;
                 case 14:
-                    StartCoroutine(SpawnCoroutine(9));
+                    StartCoroutine(SpawnCoroutine(4));
                     break;
             }
         }
